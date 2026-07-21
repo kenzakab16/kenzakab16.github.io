@@ -35,6 +35,9 @@
   section{padding:56px 0}
   h2{font-size:1.6rem;margin-bottom:8px}
   .sub{color:var(--ink-soft);margin-bottom:32px;max-width:640px}
+  .about p{font-size:1.1rem;line-height:1.8;color:var(--ink-soft);max-width:760px}
+  .about p+p{margin-top:16px}
+  .about strong{color:var(--ink);font-weight:600}
   .grid{display:grid;gap:20px}
   .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
@@ -79,6 +82,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#projets">Projets</a></li>
         <li><a href="#competences">Compétences</a></li>
+        <li><a href="#apropos">À propos</a></li>
         <li><a href="#parcours">Parcours</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -166,8 +170,8 @@
         <p class="stack">Python · pandas · rapport PDF</p>
       </div>
       <div class="card proj">
-        <span class="badge data">Machine Learning</span>
-        <h3>Classification & prédiction</h3>
+        <span class="badge data">Data</span>
+        <h3>Machine Learning</h3>
         <p>Prédiction de churn bancaire, classification cancer du sein, prévision marketing TV · modèles ML de bout en bout.</p>
         <p class="stack">scikit-learn · Jupyter · <a href="https://github.com/kenzakab16/classification-bank-churn">churn</a> · <a href="https://github.com/kenzakab16/classification-breast-cancer">cancer</a></p>
       </div>
@@ -231,27 +235,36 @@
     </div>
   </section>
 
+  <section id="apropos">
+    <h2>À propos</h2>
+    <div class="about">
+      <p>J'ai commencé comme <strong>développeuse web</strong>, à concevoir des sites et des applications sur mesure. En rejoignant l'équipe <strong>marketing digital</strong>, que je dirige aujourd'hui, j'ai appris à parler le langage des clients et des résultats, pas seulement celui du code.</p>
+      <p>C'est là qu'un constat ne m'a plus quittée : la plupart des entreprises possèdent des données précieuses sans jamais les exploiter. Je me suis alors formée sérieusement à l'<strong>analyse de données et au machine learning</strong>, pour transformer ce trésor dormant en décisions concrètes.</p>
+      <p>Aujourd'hui, je réunis ces trois mondes, le web, le marketing et la data, au service d'un seul objectif : rendre votre activité plus lisible, et plus rentable.</p>
+    </div>
+  </section>
+
   <section id="parcours">
     <h2>Mon parcours</h2>
     <p class="sub">Du développement web à la data, en passant par le marketing digital · chaque étape nourrit la suivante.</p>
     <div class="timeline">
       <div class="step">
-        <div class="when">2015 · 2020</div>
+        <div class="when">2015 – 2020</div>
         <h3>Licence puis Master Informatique · Université Mouloud Mammeri, Tizi-Ouzou</h3>
         <p>Master spécialité conduite de projets informatiques : une formation qui structure encore ma façon de livrer · cadrage, planning, résultat.</p>
       </div>
       <div class="step">
-        <div class="when">Déc. 2020 · Déc. 2022</div>
+        <div class="when">Déc. 2020 – Déc. 2022</div>
         <h3>Développeuse Full Stack · Psycom Agency</h3>
         <p>Conception et développement de sites dynamiques et responsives : Laravel, JavaScript, bases de données, authentification et sécurité.</p>
       </div>
       <div class="step">
-        <div class="when">Jan. 2023 · aujourd'hui</div>
+        <div class="when">Jan. 2023 – aujourd'hui</div>
         <h3>Cheffe d'équipe développement · Psycom Agency</h3>
         <p>Management de 3 développeurs, gestion de projets agiles de bout en bout, relation client et reporting direction.</p>
       </div>
       <div class="step">
-        <div class="when">2024 · 2025</div>
+        <div class="when">2024 – 2025</div>
         <h3>Marketing digital & virage data</h3>
         <p>Formation Advanced Digital Marketing (GOMyCode, Meta Certified), puis spécialiste marketing digital en freelance. En parallèle, début du parcours data : FUN MOOC, Coursera, puis Data Science chez Code213.</p>
       </div>
