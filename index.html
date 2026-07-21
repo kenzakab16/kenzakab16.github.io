@@ -38,6 +38,19 @@
   .about p{font-size:1.1rem;line-height:1.8;color:var(--ink-soft);max-width:760px}
   .about p+p{margin-top:16px}
   .about strong{color:var(--ink);font-weight:600}
+  .approach p{font-size:1.1rem;line-height:1.8;color:var(--ink-soft);max-width:760px}
+  .approach p+p{margin-top:16px}
+  .approach strong{color:var(--ink);font-weight:600}
+  .flow{display:flex;align-items:stretch;gap:12px;margin-top:36px}
+  .flow-step{flex:1 1 0;min-width:0;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:var(--radius);padding:20px}
+  .flow-step .flow-num{font-size:.72rem;font-weight:700;letter-spacing:.05em;color:var(--accent)}
+  .flow-step h3{font-size:1rem;margin:6px 0 6px}
+  .flow-step p{font-size:.86rem;line-height:1.55;color:var(--ink-soft)}
+  .flow-arrow{align-self:center;color:var(--accent);font-size:1.5rem;font-weight:700;flex:0 0 auto}
+  @media(max-width:760px){
+    .flow{flex-direction:column}
+    .flow-arrow{transform:rotate(90deg)}
+  }
   .grid{display:grid;gap:20px}
   .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
@@ -99,6 +112,40 @@
     <div class="btns">
       <a class="btn btn-primary" href="#contact">Discutons de votre projet</a>
       <a class="btn btn-ghost" href="#projets">Voir mes réalisations</a>
+    </div>
+  </section>
+
+  <section id="demarche">
+    <h2>Une même démarche, pas quatre métiers</h2>
+    <div class="approach">
+      <p>Beaucoup d'entreprises avancent en ordre dispersé : un site d'un côté, les réseaux sociaux de l'autre, et des données qui dorment dans des fichiers Excel. Chaque outil est géré séparément, et les décisions finissent par se prendre à l'instinct, faute d'une vue d'ensemble.</p>
+      <p>Je traite ces sujets comme les étapes d'une seule démarche. Une présence en ligne cohérente vous rend <strong>visible</strong> ; des outils adaptés vous font <strong>travailler mieux</strong> ; l'analyse de vos données révèle ce qui se passe réellement dans votre activité ; et ces informations vous permettent de <strong>décider sur des faits</strong> plutôt que sur des impressions.</p>
+      <p>C'est ce fil conducteur qui relie mon parcours, du développement web à la communication digitale puis à l'analyse de données : vous accompagner à chaque étape de votre transformation numérique, sans multiplier les prestataires.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">01</div>
+        <h3>Être visible</h3>
+        <p>Site web et présence en ligne alignée avec vos réseaux sociaux.</p>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">
+        <div class="flow-num">02</div>
+        <h3>Mieux travailler</h3>
+        <p>Applications de gestion et automatisations sur mesure.</p>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">
+        <div class="flow-num">03</div>
+        <h3>Comprendre son activité</h3>
+        <p>Analyse et visualisation de vos données.</p>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-step">
+        <div class="flow-num">04</div>
+        <h3>Décider</h3>
+        <p>Des choix appuyés sur des faits, pas des impressions.</p>
+      </div>
     </div>
   </section>
 
@@ -170,8 +217,8 @@
         <p class="stack">Python · pandas · rapport PDF</p>
       </div>
       <div class="card proj">
-        <span class="badge data">Data</span>
-        <h3>Machine Learning</h3>
+        <span class="badge data">Machine Learning</span>
+        <h3>Classification & prédiction</h3>
         <p>Prédiction de churn bancaire, classification cancer du sein, prévision marketing TV · modèles ML de bout en bout.</p>
         <p class="stack">scikit-learn · Jupyter · <a href="https://github.com/kenzakab16/classification-bank-churn">churn</a> · <a href="https://github.com/kenzakab16/classification-breast-cancer">cancer</a></p>
       </div>
