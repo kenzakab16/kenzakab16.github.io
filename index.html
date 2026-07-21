@@ -51,6 +51,29 @@
     .flow{flex-direction:column}
     .flow-arrow{transform:rotate(90deg)}
   }
+  /* ===== Réalisations : études de cas ===== */
+  .cases{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .case{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .case-media{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--accent-soft),#ffffff);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
+  .case-media img{width:100%;height:100%;object-fit:cover;display:block}
+  .case-media .ph{font-size:.78rem;font-weight:600;letter-spacing:.03em;color:var(--accent);opacity:.8}
+  .case-body{display:flex;flex-direction:column;flex:1;padding:22px}
+  .case-cat{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent)}
+  .case-body h3{font-size:1.12rem;margin:6px 0 14px}
+  .case-block{margin-bottom:14px}
+  .case-label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9aa2b1;margin-bottom:3px}
+  .case-context{font-size:.9rem;line-height:1.5;color:var(--ink-soft)}
+  .case-solution{font-size:.95rem;line-height:1.55;color:var(--ink)}
+  .case-tech{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 18px}
+  .tech-badge{font-size:.74rem;font-weight:600;color:var(--ink-soft);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+  .case-actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .case-btn{font-size:.82rem;font-weight:600;text-decoration:none;padding:8px 16px;border-radius:999px;line-height:1}
+  .case-btn.primary{background:var(--accent);color:#fff}
+  .case-btn.primary:hover{background:#0a5c73}
+  .case-btn.ghost{border:1.5px solid var(--line);color:var(--ink)}
+  .case-btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .case-private{margin-top:auto;font-size:.8rem;color:#9aa2b1;font-style:italic}
+  /* ======================================== */
   .grid{display:grid;gap:20px}
   .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
@@ -178,68 +201,201 @@
 
   <section id="projets">
     <h2>Réalisations</h2>
-    <p class="sub">Une sélection de projets livrés à des clients ou menés en formation.</p>
-    <div class="grid g3">
-      <div class="card proj">
-        <span class="badge app">Application</span>
-        <h3>Plateforme de gestion tout-en-un</h3>
-        <p>Pour une agence de communication digitale : facturation, devis, comptabilité, RH, gestion des rôles et messagerie interne.</p>
-        <p class="stack">Laravel · MySQL · gestion de projet</p>
-      </div>
-      <div class="card proj">
-        <span class="badge web">Site web</span>
-        <h3>Site vitrine · santé & bien-être</h3>
-        <p>Site professionnel avec espace visiteur et interface d'administration complète : le client gère son contenu en autonomie.</p>
-        <p class="stack">Laravel · full-stack · hébergement .dz</p>
-      </div>
-      <div class="card proj">
-        <span class="badge web">Site web</span>
-        <h3>E-commerce · mode</h3>
-        <p>Boutique en ligne pour une marque de prêt-à-porter, avec déploiement automatisé (CI/CD).</p>
-        <p class="stack">JavaScript · GitHub CI/CD</p>
-      </div>
-      <div class="card proj">
-        <span class="badge web">Site web</span>
-        <h3>Site & communication digitale</h3>
-        <p>Site web et accompagnement en communication digitale en abonnement annuel pour une entreprise de services.</p>
-        <p class="stack">Web · stratégie digitale</p>
-      </div>
-      <div class="card proj">
-        <span class="badge data">Data</span>
-        <h3>FireRisk DZ · risque incendie en Algérie</h3>
-        <p>Pipeline ETL météo/incendies (58 wilayas, 2015-2023) et dashboard Streamlit du risque feu par wilaya. Code open source.</p>
-        <p class="stack">Python · ETL · Streamlit · <a href="https://github.com/kenzakab16/firerisk-dz-dashboard">dashboard</a> · <a href="https://github.com/kenzakab16/firerisk-dz-data">données</a></p>
-      </div>
-      <div class="card proj">
-        <span class="badge data">Data</span>
-        <h3>Analyse d'activité clinique</h3>
-        <p>Rapport type pour cliniques : CA par acte, rendez-vous manqués, heures de pointe, remboursements.</p>
-        <p class="stack">Python · pandas · rapport PDF</p>
-      </div>
-      <div class="card proj">
-        <span class="badge data">Machine Learning</span>
-        <h3>Classification & prédiction</h3>
-        <p>Prédiction de churn bancaire, classification cancer du sein, prévision marketing TV · modèles ML de bout en bout.</p>
-        <p class="stack">scikit-learn · Jupyter · <a href="https://github.com/kenzakab16/classification-bank-churn">churn</a> · <a href="https://github.com/kenzakab16/classification-breast-cancer">cancer</a></p>
-      </div>
-      <div class="card proj">
-        <span class="badge data">Data</span>
-        <h3>Projets data multi-secteurs</h3>
-        <p>Météo Algérie (dashboard Streamlit), espérance de vie, pipelines ETL Covid, scraping et analyse Wikipedia, campagnes marketing, projet SQL (base aéroportuaire).</p>
-        <p class="stack">Python · SQL · pandas · <a href="https://github.com/kenzakab16?tab=repositories">tous les projets →</a></p>
-      </div>
-      <div class="card proj">
-        <span class="badge web">Sites web</span>
-        <h3>Autres sites livrés</h3>
-        <p>Sites vitrines et e-commerce pour une école privée de formation au digital, une solution de visites virtuelles, un établissement de restauration et plusieurs entreprises locales.</p>
-        <p class="stack">Laravel · PHP · JavaScript</p>
-      </div>
-      <div class="card proj">
-        <span class="badge web">Audit</span>
-        <h3>Audit de présence digitale</h3>
-        <p>Audit complet et recommandations actionnables pour une entreprise du secteur de l'énergie solaire.</p>
-        <p class="stack">Audit · stratégie de communication</p>
-      </div>
+    <p class="sub">Des études de cas courtes, dans l'ordre de la démarche : rendre visible, outiller, analyser, aider à décider.</p>
+    <div class="cases">
+
+      <!-- 01 · VISIBILITÉ -->
+      <article class="case">
+        <div class="case-media">
+          <!-- Remplacer par : <img src="images/site-sante.png" alt="Aperçu du site vitrine santé"> -->
+          <span class="ph">Aperçu à venir</span>
+        </div>
+        <div class="case-body">
+          <span class="case-cat">Visibilité</span>
+          <h3>Site vitrine & espace d'administration</h3>
+          <div class="case-block">
+            <span class="case-label">Contexte</span>
+            <p class="case-context">Une structure du secteur santé n'avait aucune vitrine en ligne et dépendait d'un tiers pour la moindre mise à jour.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Solution</span>
+            <p class="case-solution">Un site professionnel avec un espace d'administration complet, pour que l'équipe publie et modifie son contenu en toute autonomie.</p>
+          </div>
+          <div class="case-tech">
+            <span class="tech-badge">Laravel</span>
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">MySQL</span>
+          </div>
+          <p class="case-private">Projet client · code privé</p>
+        </div>
+      </article>
+
+      <!-- 02 · VISIBILITÉ -->
+      <article class="case">
+        <div class="case-media">
+          <!-- Remplacer par : <img src="images/com-digitale.png" alt="Aperçu du site & communication digitale"> -->
+          <span class="ph">Aperçu à venir</span>
+        </div>
+        <div class="case-body">
+          <span class="case-cat">Visibilité</span>
+          <h3>Site & communication digitale</h3>
+          <div class="case-block">
+            <span class="case-label">Contexte</span>
+            <p class="case-context">Une entreprise de services voulait une présence en ligne cohérente avec ses réseaux sociaux, sans avoir à la gérer elle-même.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Solution</span>
+            <p class="case-solution">Un site web et un accompagnement en communication digitale en abonnement annuel : contenus, référencement et cohérence entre tous les canaux.</p>
+          </div>
+          <div class="case-tech">
+            <span class="tech-badge">Web</span>
+            <span class="tech-badge">SEO</span>
+            <span class="tech-badge">Réseaux sociaux</span>
+          </div>
+          <p class="case-private">Projet client · code privé</p>
+        </div>
+      </article>
+
+      <!-- 03 · VISIBILITÉ → VENTE -->
+      <article class="case">
+        <div class="case-media">
+          <!-- Remplacer par : <img src="images/ecommerce-mode.png" alt="Aperçu de la boutique e-commerce mode"> -->
+          <span class="ph">Aperçu à venir</span>
+        </div>
+        <div class="case-body">
+          <span class="case-cat">Visibilité · Vente en ligne</span>
+          <h3>Boutique e-commerce</h3>
+          <div class="case-block">
+            <span class="case-label">Contexte</span>
+            <p class="case-context">Une marque de prêt-à-porter voulait vendre en ligne, mais chaque mise à jour manuelle du site créait un risque d'erreur et d'indisponibilité.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Solution</span>
+            <p class="case-solution">Une boutique en ligne responsive, avec un déploiement automatisé (CI/CD) : les mises à jour partent en production déjà testées, sans manipulation risquée.</p>
+          </div>
+          <div class="case-tech">
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">GitHub</span>
+            <span class="tech-badge">CI/CD</span>
+          </div>
+          <p class="case-private">Projet client · code privé</p>
+        </div>
+      </article>
+
+      <!-- 04 · OUTILS NUMÉRIQUES -->
+      <article class="case">
+        <div class="case-media">
+          <!-- Remplacer par : <img src="images/plateforme-gestion.png" alt="Aperçu de la plateforme de gestion"> -->
+          <span class="ph">Aperçu à venir</span>
+        </div>
+        <div class="case-body">
+          <span class="case-cat">Outils numériques</span>
+          <h3>Plateforme de gestion tout-en-un</h3>
+          <div class="case-block">
+            <span class="case-label">Contexte</span>
+            <p class="case-context">Une agence pilotait sa facturation, ses devis, sa comptabilité et ses RH avec plusieurs outils séparés, sans vue d'ensemble.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Solution</span>
+            <p class="case-solution">Une plateforme unique qui centralise tous ces processus, avec une gestion fine des rôles et une messagerie interne. Toute l'activité se pilote au même endroit.</p>
+          </div>
+          <div class="case-tech">
+            <span class="tech-badge">Laravel</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">Blade</span>
+          </div>
+          <p class="case-private">Projet client · code privé</p>
+        </div>
+      </article>
+
+      <!-- 05 · ANALYSE DE DONNÉES -->
+      <article class="case">
+        <div class="case-media">
+          <!-- Remplacer par : <img src="images/firerisk-dz.png" alt="Aperçu du dashboard FireRisk DZ"> -->
+          <span class="ph">Aperçu à venir</span>
+        </div>
+        <div class="case-body">
+          <span class="case-cat">Analyse de données</span>
+          <h3>FireRisk DZ · risque incendie en Algérie</h3>
+          <div class="case-block">
+            <span class="case-label">Contexte</span>
+            <p class="case-context">Les données météo et incendies en Algérie sont éparpillées et difficiles à exploiter pour anticiper le risque feu au niveau local.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Solution</span>
+            <p class="case-solution">Un pipeline ETL qui consolide 58 wilayas (2015-2023) et un tableau de bord qui rend le risque lisible wilaya par wilaya. Projet ouvert et réutilisable.</p>
+          </div>
+          <div class="case-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">ETL</span>
+            <span class="tech-badge">Streamlit</span>
+            <span class="tech-badge">pandas</span>
+          </div>
+          <div class="case-actions">
+            <a class="case-btn primary" href="https://github.com/kenzakab16/firerisk-dz-dashboard">Voir le dashboard</a>
+            <a class="case-btn ghost" href="https://github.com/kenzakab16/firerisk-dz-data">Données (GitHub)</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 · ANTICIPER / DÉCIDER -->
+      <article class="case">
+        <div class="case-media">
+          <!-- Remplacer par : <img src="images/prediction-ml.png" alt="Aperçu des modèles de prédiction"> -->
+          <span class="ph">Aperçu à venir</span>
+        </div>
+        <div class="case-body">
+          <span class="case-cat">Anticiper · Décider</span>
+          <h3>Modèles de prédiction</h3>
+          <div class="case-block">
+            <span class="case-label">Contexte</span>
+            <p class="case-context">Savoir à l'avance quels clients risquent de partir, ou repérer un risque médical, change les décisions d'une organisation.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Solution</span>
+            <p class="case-solution">Des modèles entraînés de bout en bout : prédiction de départ client (churn) et classification de diagnostic, du nettoyage des données jusqu'à l'évaluation.</p>
+          </div>
+          <div class="case-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">scikit-learn</span>
+            <span class="tech-badge">Jupyter</span>
+          </div>
+          <div class="case-actions">
+            <a class="case-btn primary" href="https://github.com/kenzakab16/classification-bank-churn">Churn (GitHub)</a>
+            <a class="case-btn ghost" href="https://github.com/kenzakab16/classification-breast-cancer">Diagnostic (GitHub)</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 07 · ANALYSE DE DONNÉES -->
+      <article class="case">
+        <div class="case-media">
+          <!-- Remplacer par : <img src="images/data-multi.png" alt="Aperçu des projets data multi-secteurs"> -->
+          <span class="ph">Aperçu à venir</span>
+        </div>
+        <div class="case-body">
+          <span class="case-cat">Analyse de données</span>
+          <h3>Projets data multi-secteurs</h3>
+          <div class="case-block">
+            <span class="case-label">Contexte</span>
+            <p class="case-context">Chaque secteur a ses propres questions : météo, santé publique, marketing, transport.</p>
+          </div>
+          <div class="case-block">
+            <span class="case-label">Solution</span>
+            <p class="case-solution">Analyses et visualisations sur données réelles : météo Algérie, espérance de vie, pipelines ETL Covid, campagnes marketing, projet SQL aéroportuaire.</p>
+          </div>
+          <div class="case-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">SQL</span>
+            <span class="tech-badge">pandas</span>
+            <span class="tech-badge">Streamlit</span>
+          </div>
+          <div class="case-actions">
+            <a class="case-btn primary" href="https://github.com/kenzakab16?tab=repositories">Tous les projets (GitHub)</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
 
