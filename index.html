@@ -1,510 +1,2391 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kenza Kabeche · Développeuse Web & Data Analyst</title>
-<meta name="description" content="Développeuse web et data analyst à Tizi Ouzou. Sites web, applications de gestion, dashboards et analyse de données pour PME, cliniques et écoles.">
-<style>
-  :root{
-    --ink:#1a2332; --ink-soft:#4a5568; --bg:#fafaf8; --card:#ffffff;
-    --accent:#0e7490; --accent-soft:#e0f2f7; --accent2:#b45309; --line:#e6e2da;
-    --radius:14px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
-  header{position:sticky;top:0;background:rgba(250,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
-  nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
-  .logo{font-weight:700;font-size:1.05rem;color:var(--accent)}
-  nav ul{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
-  nav a{text-decoration:none;color:var(--ink-soft);font-size:.92rem}
-  nav a:hover{color:var(--accent)}
-  .hero{padding:72px 0 56px}
-  .hero .tag{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.85rem;padding:6px 14px;border-radius:999px;margin-bottom:18px}
-  h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin-bottom:14px}
-  h1 span{color:var(--accent)}
-  .hero p.lead{font-size:1.12rem;color:var(--ink-soft);max-width:680px;margin-bottom:24px}
-  .hero-facts{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-  .hero-fact{font-size:.82rem;font-weight:600;color:var(--ink-soft);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
-  .btns{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{display:inline-block;padding:12px 26px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem}
-  .btn-primary{background:var(--accent);color:#fff}
-  .btn-primary:hover{background:#0a5c73}
-  .btn-ghost{border:1.5px solid var(--accent);color:var(--accent)}
-  .btn-ghost:hover{background:var(--accent-soft)}
-  section{padding:56px 0}
-  h2{font-size:1.6rem;margin-bottom:8px}
-  .sub{color:var(--ink-soft);margin-bottom:32px;max-width:640px}
-  .about p{font-size:1.1rem;line-height:1.8;color:var(--ink-soft);max-width:760px}
-  .about p+p{margin-top:16px}
-  .about strong{color:var(--ink);font-weight:600}
-  .approach p{font-size:1.1rem;line-height:1.8;color:var(--ink-soft);max-width:760px}
-  .approach p+p{margin-top:16px}
-  .approach strong{color:var(--ink);font-weight:600}
-  .flow{display:flex;align-items:stretch;gap:12px;margin-top:36px}
-  .flow-step{flex:1 1 0;min-width:0;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:var(--radius);padding:20px}
-  .flow-step .flow-num{font-size:.72rem;font-weight:700;letter-spacing:.05em;color:var(--accent)}
-  .flow-step h3{font-size:1rem;margin:6px 0 6px}
-  .flow-step p{font-size:.86rem;line-height:1.55;color:var(--ink-soft)}
-  .flow-arrow{align-self:center;color:var(--accent);font-size:1.5rem;font-weight:700;flex:0 0 auto}
-  @media(max-width:760px){
-    .flow{flex-direction:column}
-    .flow-arrow{transform:rotate(90deg)}
-  }
-  /* ===== Réalisations : études de cas ===== */
-  .cases{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-  .case{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-  .case-media{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--accent-soft),#ffffff);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
-  .case-media img{width:100%;height:100%;object-fit:cover;display:block}
-  .case-media .ph{font-size:.78rem;font-weight:600;letter-spacing:.03em;color:var(--accent);opacity:.8}
-  .case-body{display:flex;flex-direction:column;flex:1;padding:22px}
-  .case-cat{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent)}
-  .case-body h3{font-size:1.12rem;margin:6px 0 14px}
-  .case-block{margin-bottom:14px}
-  .case-label{display:block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9aa2b1;margin-bottom:3px}
-  .case-context{font-size:.9rem;line-height:1.5;color:var(--ink-soft)}
-  .case-solution{font-size:.95rem;line-height:1.55;color:var(--ink)}
-  .case-tech{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 18px}
-  .tech-badge{font-size:.74rem;font-weight:600;color:var(--ink-soft);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
-  .case-actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .case-btn{font-size:.82rem;font-weight:600;text-decoration:none;padding:8px 16px;border-radius:999px;line-height:1}
-  .case-btn.primary{background:var(--accent);color:#fff}
-  .case-btn.primary:hover{background:#0a5c73}
-  .case-btn.ghost{border:1.5px solid var(--line);color:var(--ink)}
-  .case-btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
-  .case-private{margin-top:auto;font-size:.8rem;color:#9aa2b1;font-style:italic}
-  /* ======================================== */
-  .grid{display:grid;gap:20px}
-  .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-  .card h3{font-size:1.08rem;margin-bottom:8px}
-  .card p{font-size:.93rem;color:var(--ink-soft)}
-  .offer{border-top:4px solid var(--accent)}
-  .offer.alt{border-top-color:var(--accent2)}
-  .offer ul{margin:12px 0 0 18px;font-size:.92rem;color:var(--ink-soft)}
-  .offer li{margin-bottom:5px}
-  .badge{display:inline-block;font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px}
-  .badge.web{background:var(--accent-soft);color:var(--accent)}
-  .badge.data{background:#fef3e2;color:var(--accent2)}
-  .badge.app{background:#ede9fe;color:#6d28d9}
-  .proj .stack{font-size:.8rem;color:#8a93a3;margin-top:10px}
-  .skills .card ul{list-style:none;margin-top:10px}
-  .skills .card li{font-size:.9rem;color:var(--ink-soft);padding:5px 0;border-bottom:1px dashed var(--line)}
-  .skills .card li:last-child{border:none}
-  .timeline{border-left:2px solid var(--accent);margin-left:8px;padding-left:26px}
-  .step{position:relative;margin-bottom:26px}
-  .step::before{content:"";position:absolute;left:-33px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
-  .step .when{font-size:.8rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}
-  .step h3{font-size:1.02rem;margin:2px 0 4px}
-  .step p{font-size:.92rem;color:var(--ink-soft)}
-  .cta{background:var(--ink);color:#fff;border-radius:var(--radius);padding:44px 34px;text-align:center}
-  .cta h2{color:#fff}
-  .cta p{color:#c3ccd9;max-width:560px;margin:10px auto 24px}
-  .cta .btn-primary{background:#fff;color:var(--ink)}
-  footer{padding:32px 0;text-align:center;color:#8a93a3;font-size:.85rem}
-  .contact-line{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
-  .contact-line a{color:var(--accent);text-decoration:none}
-  .todo{outline:2px dashed #f59e0b;outline-offset:2px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenza Kabeche · Communication · Design · Web · Data · variante 2</title>
+  <meta name="description"
+    content="Développeuse web et data analyst à Tizi Ouzou. Sites web, applications de gestion, dashboards et analyse de données pour PME, cliniques et écoles.">
+  <link rel="icon" href="assets/favicon-tile.png">
+  <link rel="apple-touch-icon" href="assets/favicon-tile.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100..900;1,100..900&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+
+      /* ===== Couleurs ===== */
+
+      --navy: #071421;
+      --navy-light: #0E2338;
+      --navy-soft: #17324B;
+
+      --teal: #0F4C5C;
+      --teal-light: #2C6F82;
+
+      --gold: #D4A373;
+      --gold-light: #E6C19A;
+
+      --cream: #F8F7F4;
+      --white: #FFFFFF;
+
+      --gray-100: #F4F5F7;
+      --gray-200: #E5E8EC;
+      --gray-300: #C9D0D8;
+      --gray-500: #667487;
+      --gray-700: #314052;
+
+      --text: #132235;
+
+      --radius: 18px;
+
+      --shadow-sm:
+        0 8px 25px rgba(7, 20, 33, .04);
+
+      --shadow-md:
+        0 18px 50px rgba(7, 20, 33, .08);
+
+      --shadow-lg:
+        0 35px 80px rgba(7, 20, 33, .12);
+
+      --transition: .35s cubic-bezier(.4, 0, .2, 1);
+
+      --max-width: 1220px;
+
+      --serif: 'Fraunces', serif;
+      --sans: 'Inter', sans-serif;
+
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+
+      font-family: var(--sans);
+
+      background:
+
+        radial-gradient(circle at top left,
+          rgba(15, 76, 92, .05),
+          transparent 35%),
+
+        radial-gradient(circle at bottom right,
+          rgba(212, 163, 115, .05),
+          transparent 40%),
+
+        var(--cream);
+
+      color: var(--text);
+
+      line-height: 1.8;
+
+      font-weight: 300;
+
+      overflow-x: hidden;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+    .wrap {
+
+      max-width: 1220px;
+
+      margin: auto;
+
+      padding-inline: 42px;
+
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+
+      font-family: var(--serif);
+
+      font-weight: 500;
+
+      line-height: 1.15;
+
+      letter-spacing: -.03em;
+
+      color: var(--navy);
+
+    }
+
+    p {
+
+      font-size: 1.05rem;
+
+      color: var(--gray-700);
+
+      line-height: 1.9;
+
+    }
+
+    section {
+
+      padding: 130px 0;
+
+      position: relative;
+
+    }
+
+    .card {
+
+      background: white;
+
+      border: 1px solid rgba(13, 27, 42, .06);
+
+      border-radius: 18px;
+
+      box-shadow: var(--shadow-sm);
+
+      transition: var(--transition);
+
+      overflow: hidden;
+
+    }
+
+    .card:hover {
+
+      transform: translateY(-8px);
+
+      box-shadow: var(--shadow-lg);
+
+    }
+
+
+    .btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 12px;
+
+      padding: 16px 34px;
+
+      border-radius: 999px;
+
+      font-size: .78rem;
+
+      letter-spacing: .15em;
+
+      text-transform: uppercase;
+
+      font-weight: 600;
+
+      transition: var(--transition);
+
+      cursor: pointer;
+
+      text-decoration: none;
+
+    }
+
+    .btn-primary {
+
+      background: linear-gradient(135deg,
+          var(--gold),
+          var(--gold-light));
+
+      color: var(--navy);
+
+      box-shadow:
+
+        0 12px 30px rgba(212, 163, 115, .25);
+
+    }
+
+    .btn-primary:hover {
+
+      transform: translateY(-3px);
+
+      box-shadow:
+
+        0 22px 45px rgba(212, 163, 115, .35);
+
+    }
+
+
+    .btn-ghost {
+
+      border: 1px solid rgba(255, 255, 255, .25);
+
+      color: white;
+
+      backdrop-filter: blur(10px);
+
+    }
+
+    .btn-ghost:hover {
+
+      border-color: var(--gold);
+
+      color: var(--gold);
+
+      background: rgba(255, 255, 255, .03);
+
+    }
+
+    .section-head {
+
+      max-width: 760px;
+
+      margin: auto auto 80px;
+
+      text-align: center;
+
+    }
+
+    .eyebrow {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      font-size: .72rem;
+
+      font-weight: 600;
+
+      letter-spacing: .24em;
+
+      text-transform: uppercase;
+
+      color: var(--teal);
+
+      margin-bottom: 18px;
+
+    }
+
+    .eyebrow::before {
+
+      content: "";
+
+      width: 36px;
+
+      height: 2px;
+
+      background: var(--gold);
+
+    }
+
+    .rule {
+
+      width: 90px;
+
+      height: 2px;
+
+      margin: 28px auto;
+
+      background:
+
+        linear-gradient(90deg,
+          transparent,
+          var(--gold),
+          transparent);
+
+    }
+
+    .fade-up {
+
+      opacity: 0;
+
+      transform: translateY(40px);
+
+      transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+    }
+
+    .fade-up.show {
+
+      opacity: 1;
+
+      transform: none;
+
+    }
+
+    /* =================================================================
+       Composants repris de la v1, réécrits avec les jetons ci-dessus
+       ================================================================= */
+
+    .section-head h2 {
+      font-size: clamp(2rem, 3.6vw, 2.9rem);
+    }
+
+    .section-head .sub {
+      margin-top: 20px;
+      color: var(--gray-500);
+    }
+
+    .alt-bg {
+      background: rgba(255, 255, 255, .55);
+      border-block: 1px solid var(--gray-200);
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 247, 244, .82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand img {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      display: block;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: .54rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-top: 6px;
+      display: block;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--gray-500);
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 500;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    nav ul a:hover {
+      color: var(--navy);
+      border-bottom-color: var(--gold);
+    }
+
+    @media(max-width:900px) {
+      .brand-sub {
+        display: none
+      }
+
+      nav ul {
+        gap: 16px
+      }
+
+      nav ul a {
+        font-size: .66rem;
+        letter-spacing: .1em
+      }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      background:
+        radial-gradient(ellipse at 20% 40%, var(--navy-light), transparent 60%),
+        var(--navy);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .5;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 22% 45%,
+          rgba(7, 20, 33, .95) 0%,
+          rgba(7, 20, 33, .7) 45%,
+          rgba(7, 20, 33, .3) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 150px 0 160px;
+      width: min(1160px, 94%);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: minmax(200px, 300px) 1fr;
+      align-items: center;
+      gap: 90px;
+    }
+
+    .hero-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .hero-brand img {
+      width: min(150px, 100%);
+      height: auto;
+      display: block;
+    }
+
+    .hero-brand .n {
+      font-family: var(--serif);
+      font-weight: 800;
+      font-size: clamp(1.3rem, 2vw, 1.6rem);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.3;
+      display: block;
+    }
+
+    .hero-content {
+      max-width: 620px;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-weight: 650;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 460;
+      color: var(--gold);
+    }
+
+    .hero .lead {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, .68);
+      max-width: 620px;
+      margin-bottom: 42px;
+    }
+
+    /* les deux affirmations en blocs à nœuds */
+    .claims {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      max-width: 34ch;
+      margin-bottom: 30px;
+      font-size: clamp(1.15rem, 1.5vw, 1.3rem);
+      line-height: 1.5;
+      letter-spacing: -.02em;
+    }
+
+    .claim {
+      position: relative;
+      display: block;
+      padding-left: 30px;
+    }
+
+    .claim::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .5em;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 0 5px rgba(255, 255, 255, .1);
+    }
+
+    .claim:last-child::before {
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(212, 163, 115, .18);
+    }
+
+    .claim:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: calc(.5em + 13px);
+      bottom: -26px;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .3), rgba(212, 163, 115, .6));
+    }
+
+    .claim-key {
+      display: block;
+      font-family: var(--sans);
+      font-size: .58rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      color: var(--gray-300);
+      margin-bottom: 6px;
+    }
+
+    .claim:last-child .claim-key {
+      color: var(--gold);
+    }
+
+    .btns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btns .btn {
+      padding: 9px 18px;
+      font-size: .62rem;
+      letter-spacing: .1em;
+      gap: 8px;
+    }
+
+    /* ---------- Bandeau 4 piliers ---------- */
+    .pillars {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 76px 0;
+    }
+
+    .pillar {
+      padding: 0 32px;
+      border-left: 1px dotted rgba(212, 163, 115, .3);
+    }
+
+    .pillar:first-child {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .pillar svg {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 22px;
+      display: block;
+    }
+
+    .pillar h3 {
+      font-family: var(--sans);
+      font-size: .74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .pillar p {
+      font-size: .87rem;
+      color: rgba(255, 255, 255, .6);
+      line-height: 1.8;
+    }
+
+    @media(max-width:860px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 46px 0;
+        padding: 60px 0;
+      }
+
+      .pillar:nth-child(odd) {
+        border-left: none;
+        padding-left: 0;
+      }
+    }
+
+    @media(max-width:520px) {
+      .pillars-grid {
+        grid-template-columns: 1fr
+      }
+
+      .pillar {
+        border-left: none;
+        padding-left: 0
+      }
+    }
+
+    /* ---------- Démarche ---------- */
+    .prose {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .prose p+p {
+      margin-top: 20px;
+    }
+
+    .prose strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 70px;
+    }
+
+    .flow-step {
+      background: var(--white);
+      border: 1px solid rgba(13, 27, 42, .06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 34px 28px;
+      transition: var(--transition);
+    }
+
+    .flow-step:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .flow-num {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .flow-step h3 {
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+    }
+
+    .flow-step p {
+      font-size: .88rem;
+      line-height: 1.75;
+      color: var(--gray-500);
+    }
+
+    @media(max-width:900px) {
+      .flow {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:520px) {
+      .flow {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* ---------- Schéma interactif ---------- */
+    .fd {
+      margin: 90px auto 0;
+      width: min(760px, 100%);
+      background: var(--white);
+      border: 1px solid rgba(13, 27, 42, .06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 56px 44px 40px;
+    }
+
+    .fd svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    .fd figcaption {
+      margin-top: 10px;
+      text-align: center;
+      font-size: .66rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gray-300);
+    }
+
+    .fd .orbit {
+      fill: none;
+      stroke: var(--gray-200);
+      stroke-width: 1;
+      stroke-dasharray: 2 7;
+      opacity: .65;
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: fdSpin 60s linear infinite;
+    }
+
+    @keyframes fdSpin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .fd .ln {
+      fill: none;
+      stroke: var(--teal);
+      stroke-opacity: .4;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      /* --len est calculé en JS (longueur réelle du tracé) */
+      stroke-dasharray: var(--len);
+      stroke-dashoffset: var(--len);
+      transition:
+        stroke-dashoffset .75s ease var(--dl, 0s),
+        stroke-opacity .25s ease,
+        stroke-width .25s ease,
+        stroke .25s ease;
+    }
+
+    .fd.play .ln {
+      stroke-dashoffset: 0;
+    }
+
+    .fd .ln.conv {
+      stroke: url(#fdConvGrad);
+      stroke-opacity: .65;
+    }
+
+    .fd .nd {
+      opacity: 0;
+      transform: scale(.5);
+      transform-box: fill-box;
+      transform-origin: center;
+      transition:
+        opacity .5s ease var(--dl, 0s),
+        transform .55s cubic-bezier(.2, .9, .3, 1.4) var(--dl, 0s);
+    }
+
+    .fd.play .nd {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .fd .chip {
+      fill: #fff;
+      stroke: rgba(13, 27, 42, .1);
+      stroke-width: 1;
+      filter: url(#fdShadow);
+      transition: stroke .25s ease, stroke-width .25s ease;
+    }
+
+    .fd .chip-accent {
+      stroke: none;
+    }
+
+    .fd .node-web .chip-accent,
+    .fd .node-data .chip-accent {
+      fill: rgba(15, 76, 92, .1);
+    }
+
+    .fd .node-mkt .chip-accent {
+      fill: rgba(212, 163, 115, .16);
+    }
+
+    .fd .node-src .chip-accent {
+      fill: rgba(7, 20, 33, .06);
+    }
+
+    .fd .icn {
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke .25s ease;
+    }
+
+    .fd .node-src .icn {
+      stroke: var(--navy);
+    }
+
+    .fd .node-web .icn,
+    .fd .node-data .icn {
+      stroke: var(--teal);
+    }
+
+    .fd .node-mkt .icn {
+      stroke: var(--gold);
+    }
+
+    .fd .hub .chip {
+      fill: url(#fdHubFill);
+      stroke: none;
+      filter: url(#fdShadowLg);
+    }
+
+    .fd .hub .icn {
+      stroke: var(--navy);
+      stroke-width: 2.1;
+    }
+
+    .fd .hub {
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform .35s ease;
+    }
+
+    .fd .lbl {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      text-anchor: middle;
+      fill: var(--gray-500);
+      opacity: 0;
+      paint-order: stroke fill;
+      stroke: var(--white);
+      stroke-width: 5px;
+      stroke-linejoin: round;
+      transition: opacity .45s ease var(--dl, 0s), fill .25s ease;
+    }
+
+    .fd.play .lbl {
+      opacity: 1;
+    }
+
+    .fd .lbl-src {
+      fill: var(--navy);
+      letter-spacing: .2em;
+      font-weight: 700;
+    }
+
+    .fd .lbl-key {
+      fill: var(--gold);
+      font-size: 12px;
+      letter-spacing: .22em;
+      font-weight: 700;
+    }
+
+    .fd .halo,
+    .fd .ring {
+      opacity: 0;
+    }
+
+    .fd .ring {
+      fill: none;
+      stroke: var(--gold);
+      stroke-opacity: .45;
+      stroke-width: 1;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .fd.play .halo {
+      animation: fdGlowIn .9s ease 3.05s forwards;
+    }
+
+    .fd.play .ring {
+      animation: fdRing 2.4s ease-out 3.15s infinite;
+    }
+
+    @keyframes fdGlowIn {
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes fdRing {
+      0% {
+        opacity: .7;
+        transform: scale(.55)
+      }
+
+      70% {
+        opacity: 0;
+        transform: scale(1.5)
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.5)
+      }
+    }
+
+    .fd .hit {
+      fill: transparent;
+      cursor: pointer;
+    }
+
+    .fd .branch {
+      outline: none;
+      transition: opacity .25s ease;
+    }
+
+    .fd .branch:hover .ln,
+    .fd .branch:focus-visible .ln {
+      stroke: var(--gold);
+      stroke-opacity: 1;
+      stroke-width: 2.2;
+    }
+
+    .fd .branch:hover .chip,
+    .fd .branch:focus-visible .chip {
+      stroke: var(--gold);
+      stroke-width: 1.6;
+    }
+
+    .fd .branch:hover .icn,
+    .fd .branch:focus-visible .icn {
+      stroke: var(--gold);
+    }
+
+    .fd .branch:hover .lbl,
+    .fd .branch:focus-visible .lbl {
+      fill: var(--navy);
+    }
+
+    .fd:has(.branch:hover) .branch:not(:hover),
+    .fd:has(.branch:focus-visible) .branch:not(:focus-visible) {
+      opacity: .35;
+    }
+
+    .fd:has(.branch:hover) .hub,
+    .fd:has(.branch:focus-visible) .hub {
+      transform: scale(1.06);
+    }
+
+    @media(max-width:600px) {
+      .fd {
+        padding: 40px 20px 30px;
+      }
+    }
+
+    /* ---------- Services ---------- */
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    .offer {
+      padding: 46px 40px;
+      position: relative;
+    }
+
+    .offer::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    }
+
+    .offer.gold::before {
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    .offer h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .offer>p {
+      font-size: .96rem;
+      margin-bottom: 26px;
+      color: var(--gray-500);
+    }
+
+    .offer ul {
+      list-style: none;
+    }
+
+    .offer li {
+      font-size: .92rem;
+      color: var(--gray-700);
+      line-height: 1.7;
+      padding: 13px 0 13px 24px;
+      border-bottom: 1px solid var(--gray-200);
+      position: relative;
+    }
+
+    .offer li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .offer li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 22px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .offer li strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* ---------- Réalisations ---------- */
+    .cases {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    .case {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-media {
+      position: relative;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 140%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .case-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .case-media .mesh {
+      position: absolute;
+      inset: 0;
+      opacity: .5;
+    }
+
+    .case-media .ph {
+      position: relative;
+      z-index: 2;
+      font-size: .62rem;
+      font-weight: 500;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .45);
+    }
+
+    .case-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 34px 32px;
+    }
+
+    .case-cat {
+      font-size: .62rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .case-body h3 {
+      font-size: 1.3rem;
+      margin-bottom: 22px;
+    }
+
+    .case-block {
+      margin-bottom: 20px;
+    }
+
+    .case-label {
+      display: block;
+      font-size: .58rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .case-context {
+      font-size: .89rem;
+      line-height: 1.75;
+      color: var(--gray-500);
+    }
+
+    .case-solution {
+      font-size: .92rem;
+      line-height: 1.75;
+      color: var(--gray-700);
+    }
+
+    .case-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 6px 0 26px;
+    }
+
+    .tech-badge {
+      font-size: .64rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 999px;
+      padding: 6px 14px;
+    }
+
+    .case-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .case-btn {
+      font-size: .64rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 999px;
+      transition: var(--transition);
+      line-height: 1;
+    }
+
+    .case-btn.primary {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .case-btn.primary:hover {
+      background: var(--teal);
+    }
+
+    .case-btn.ghost {
+      border: 1px solid var(--gray-200);
+      color: var(--gray-700);
+    }
+
+    .case-btn.ghost:hover {
+      border-color: var(--gold);
+      color: var(--teal);
+    }
+
+    .case-private {
+      margin-top: auto;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gray-300);
+    }
+
+    .case.featured {
+      border-color: rgba(212, 163, 115, .5);
+      box-shadow: var(--shadow-md);
+    }
+
+    .case-flag {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: .58rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--navy);
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 14px;
+    }
+
+    /* ---------- Compétences ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .skill-card {
+      padding: 42px 34px;
+    }
+
+    .skill-card h3 {
+      font-size: 1.22rem;
+    }
+
+    .skill-card .rule {
+      margin: 20px 0 22px;
+      width: 60px;
+    }
+
+    .skill-card ul {
+      list-style: none;
+    }
+
+    .skill-card li {
+      font-size: .88rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .skill-card li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    /* ---------- Parcours ---------- */
+    .timeline {
+      max-width: 760px;
+      margin: auto;
+      border-left: 1px solid var(--gray-200);
+      padding-left: 40px;
+    }
+
+    .step {
+      position: relative;
+      padding-bottom: 46px;
+    }
+
+    .step:last-child {
+      padding-bottom: 0;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      left: -46px;
+      top: 9px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 2px solid var(--gold);
+    }
+
+    .step .when {
+      font-size: .64rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+
+    .step h3 {
+      font-size: 1.14rem;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: .92rem;
+      line-height: 1.8;
+      color: var(--gray-500);
+    }
+
+    /* ---------- CTA ---------- */
+    .cta-section {
+      padding: 0 0 130px;
+    }
+
+    .cta {
+      position: relative;
+      background:
+        radial-gradient(ellipse at 50% 0%, var(--navy-light), transparent 65%),
+        var(--navy);
+      color: #fff;
+      padding: 100px 46px;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .35;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .cta h2 {
+      color: #fff;
+      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+      font-weight: 400;
+      max-width: 22ch;
+      margin: 0 auto 20px;
+    }
+
+    .cta h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cta p {
+      color: rgba(255, 255, 255, .62);
+      max-width: 60ch;
+      margin: 0 auto 38px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--navy);
+      color: var(--gray-300);
+      padding: 70px 0 44px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255, 255, 255, .09);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-brand img {
+      height: 54px;
+      width: auto;
+    }
+
+    .footer-brand .n {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      color: #fff;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      display: block;
+      line-height: 1;
+    }
+
+    .footer-brand .s {
+      font-size: .56rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-top: 7px;
+      display: block;
+      color: var(--gray-500);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, .72);
+      text-decoration: none;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: .72rem;
+      color: var(--gray-500);
+    }
+
+    .footer-bottom .tag {
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-size: .62rem;
+      color: var(--gold);
+    }
+
+    @media(max-width:760px) {
+      section {
+        padding: 90px 0
+      }
+
+      .wrap {
+        padding-inline: 24px
+      }
+
+      .hero-inner {
+        padding: 100px 0 110px
+      }
+
+      .cta {
+        padding: 70px 26px
+      }
+    }
+
+    @media(max-width:860px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+
+      .hero-brand {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .hero-brand img {
+        width: 72px;
+      }
+
+      .hero-content {
+        max-width: none;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      .fade-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      html {
+        scroll-behavior: auto
+      }
+
+      .fd .ln,
+      .fd .nd,
+      .fd .lbl {
+        transition: none !important;
+        transition-delay: 0s !important;
+        stroke-dashoffset: 0 !important;
+        opacity: 1;
+        transform: none;
+      }
+
+      .fd .halo,
+      .fd .ring {
+        animation: none
+      }
+
+      .card:hover,
+      .flow-step:hover,
+      .btn-primary:hover {
+        transform: none
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <div class="wrap">
-    <nav>
-      <div class="logo">Kenza Kabeche</div>
-      <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#competences">Compétences</a></li>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a href="#parcours">Parcours</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#top">
+          <img src="assets/logo-monogram.png" alt="Monogramme Kenza Kabeche">
+          <span class="brand-name">Kenza Kabeche</span>
+        </a>
+        <ul>
+          <li><a href="#demarche">Démarche</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projets">Réalisations</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header> -->
+
+  <!-- ============ HERO ============ -->
+  <div class="hero" id="top">
+    <canvas id="mesh-hero"></canvas>
+    <div class="wrap hero-inner">
+      <div class="hero-brand">
+        <img src="assets/logo-white-transparent.png" alt="Logo Kenza Kabeche">
+        <span class="n">Kenza Kabeche</span>
+      </div>
+      <div class="hero-content">
+        <h1 class="claims">
+          <span class="claim">
+            <span class="claim-key">Solutions</span>
+            Des solutions numériques conçues pour les entreprises
+          </span>
+          <span class="claim">
+            <span class="claim-key">Décisions</span>
+            Des données transformées en <em>décisions</em>
+          </span>
+        </h1>
+        <p class="lead">Développeuse Full Stack et Data Analyst, je conçois des solutions numériques qui répondent aux
+          besoins d'aujourd'hui et soutiennent les décisions de demain. En combinant le développement web, le marketing
+          digital et l'analyse de données, j'aide les entreprises à structurer leurs outils, mieux comprendre leur
+          activité et prendre des décisions plus éclairées.</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="#projets">Découvrir mes réalisations</a>
+          <a class="btn btn-ghost" href="#contact">Me contacter</a>
+        </div>
+      </div>
+    </div>
   </div>
-</header>
 
-<div class="wrap">
-
-  <section class="hero">
-    <span class="tag">Tizi Ouzou · Algérie · disponible pour missions</span>
-    <h1>Des solutions numériques conçues pour les entreprises. Des données transformées en <span>décisions</span>.</h1>
-    <p class="lead">Développeuse Full Stack et Data Analyst, je conçois des solutions numériques qui répondent aux besoins d'aujourd'hui et soutiennent les décisions de demain. En combinant le développement web, le marketing digital et l'analyse de données, j'aide les entreprises à structurer leurs outils, mieux comprendre leur activité et prendre des décisions plus éclairées.</p>
-    <div class="hero-facts">
-      <span class="hero-fact">4+ années d'expérience</span>
-      <span class="hero-fact">Développement web</span>
-      <span class="hero-fact">Marketing digital</span>
-      <span class="hero-fact">Analyse de données</span>
-    </div>
-    <div class="btns">
-      <a class="btn btn-primary" href="#projets">Découvrir mes réalisations</a>
-      <a class="btn btn-ghost" href="#contact">Me contacter</a>
-    </div>
-  </section>
-
+  <!-- ============ DÉMARCHE ============ -->
   <section id="demarche">
-    <h2>Une même démarche, pas quatre métiers</h2>
-    <div class="approach">
-      <p>Beaucoup d'entreprises avancent en ordre dispersé : un site d'un côté, les réseaux sociaux de l'autre, et des données qui dorment dans des fichiers Excel. Chaque outil est géré séparément, et les décisions finissent par se prendre à l'instinct, faute d'une vue d'ensemble.</p>
-      <p>Je traite ces sujets comme les étapes d'une seule démarche. Une présence en ligne cohérente vous rend <strong>visible</strong> ; des outils adaptés vous font <strong>travailler mieux</strong> ; l'analyse de vos données révèle ce qui se passe réellement dans votre activité ; et ces informations vous permettent de <strong>décider sur des faits</strong> plutôt que sur des impressions.</p>
-      <p>C'est ce fil conducteur qui relie mon parcours, du développement web à la communication digitale puis à l'analyse de données : vous accompagner à chaque étape de votre transformation numérique, sans multiplier les prestataires.</p>
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <span class="eyebrow">La démarche</span>
+        <h2>Une même démarche, pas quatre métiers</h2>
+        <div class="rule"></div>
+      </div>
+
+      <div class="prose fade-up">
+        <p>Beaucoup d'entreprises avancent en ordre dispersé : un site d'un côté, les réseaux sociaux de l'autre, et
+          des données qui dorment dans des fichiers Excel. Chaque outil est géré séparément, et les décisions
+          finissent par se prendre à l'instinct, faute d'une vue d'ensemble.</p>
+        <p>Je traite ces sujets comme les étapes d'une seule démarche. Une présence en ligne cohérente vous rend
+          <strong>visible</strong> ; des outils adaptés vous font <strong>travailler mieux</strong> ; l'analyse de vos
+          données révèle ce qui se passe réellement dans votre activité ; et ces informations vous permettent de
+          <strong>décider sur des faits</strong> plutôt que sur des impressions.
+        </p>
+        <p>C'est ce fil conducteur qui relie mon parcours, du développement web à la communication digitale puis à
+          l'analyse de données : vous accompagner à chaque étape de votre transformation numérique, sans multiplier
+          les prestataires.</p>
+      </div>
+
+      <div class="flow fade-up">
+        <div class="flow-step">
+          <span class="flow-num">01</span>
+          <h3>Être visible</h3>
+          <p>Site web et présence en ligne alignée avec vos réseaux sociaux.</p>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">02</span>
+          <h3>Mieux travailler</h3>
+          <p>Applications de gestion et automatisations sur mesure.</p>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">03</span>
+          <h3>Comprendre son activité</h3>
+          <p>Analyse et visualisation de vos données.</p>
+        </div>
+        <div class="flow-step">
+          <span class="flow-num">04</span>
+          <h3>Décider</h3>
+          <p>Des choix appuyés sur des faits, pas des impressions.</p>
+        </div>
+      </div>
+
+      <!-- Schéma interactif : de l'entreprise à la décision -->
+      <figure class="fd" id="flow-diagram">
+        <svg viewBox="0 0 640 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+          aria-label="Schéma : une entreprise s'appuie sur trois leviers (Web, Marketing et Analyse de données) qui convergent vers de meilleures décisions.">
+          <defs>
+            <radialGradient id="fdGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#D4A373" stop-opacity=".55" />
+              <stop offset="100%" stop-color="#D4A373" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="fdConvGrad" x1="320" y1="242" x2="320" y2="386" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0F4C5C" stop-opacity=".5" />
+              <stop offset="100%" stop-color="#D4A373" stop-opacity=".9" />
+            </linearGradient>
+            <radialGradient id="fdHubFill" cx="35%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#E6C19A" />
+              <stop offset="100%" stop-color="#D4A373" />
+            </radialGradient>
+            <filter id="fdShadow" x="-60%" y="-60%" width="220%" height="220%">
+              <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0B1B2B" flood-opacity=".16" />
+            </filter>
+            <filter id="fdShadowLg" x="-70%" y="-70%" width="240%" height="240%">
+              <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0B1B2B" flood-opacity=".22" />
+            </filter>
+          </defs>
+
+          <circle class="orbit" cx="320" cy="230" r="205" />
+
+          <!-- Entreprise -->
+          <g class="nd node-src" style="--dl:.1s">
+            <circle class="chip" cx="320" cy="58" r="20" />
+            <circle class="chip-accent" cx="320" cy="58" r="14" />
+            <g class="icn" transform="translate(320,58)">
+              <path d="M-9 8V-2L0-9L9-2V8Z" />
+              <path d="M-3 8V2H3V8" />
+            </g>
+          </g>
+          <text class="lbl lbl-src" style="--dl:.1s" x="320" y="20">Entreprise</text>
+
+          <!-- Branche Web -->
+          <g class="branch" data-branch="web" tabindex="0">
+            <path class="ln" style="--dl:1.3s" d="M320 78C320 130 160 130 110 186" />
+            <path class="ln conv" style="--dl:2.3s" d="M110 242C110 300 220 340 290 364" />
+            <g class="nd node-web" style="--dl:1.75s">
+              <circle class="chip" cx="110" cy="214" r="28" />
+              <circle class="chip-accent" cx="110" cy="214" r="20" />
+              <g class="icn" transform="translate(110,214)">
+                <rect x="-9" y="-7" width="18" height="14" rx="2" />
+                <path d="M-9 -2H9" />
+                <circle cx="-6" cy="-4.5" r=".7" fill="currentColor" stroke="none" />
+              </g>
+            </g>
+            <text class="lbl" style="--dl:1.75s" x="110" y="270">Web</text>
+            <circle class="hit" cx="110" cy="214" r="46" />
+          </g>
+
+          <!-- Branche Marketing -->
+          <g class="branch" data-branch="marketing" tabindex="0">
+            <path class="ln" style="--dl:1.45s" d="M320 78C320 118 320 150 320 186" />
+            <path class="ln conv" style="--dl:2.4s" d="M320 242C320 290 320 320 320 350" />
+            <g class="nd node-mkt" style="--dl:1.9s">
+              <circle class="chip" cx="320" cy="214" r="28" />
+              <circle class="chip-accent" cx="320" cy="214" r="20" />
+              <g class="icn" transform="translate(320,214)">
+                <path d="M-9 7L-2 -1L3 3L9 -6" />
+                <path d="M3 -6H9V0" />
+              </g>
+            </g>
+            <text class="lbl" style="--dl:1.9s" x="320" y="270">Marketing</text>
+            <circle class="hit" cx="320" cy="214" r="46" />
+          </g>
+
+          <!-- Branche Data -->
+          <g class="branch" data-branch="data" tabindex="0">
+            <path class="ln" style="--dl:1.6s" d="M320 78C320 130 480 130 530 186" />
+            <path class="ln conv" style="--dl:2.5s" d="M530 242C530 300 420 340 350 364" />
+            <g class="nd node-data" style="--dl:2.05s">
+              <circle class="chip" cx="530" cy="214" r="28" />
+              <circle class="chip-accent" cx="530" cy="214" r="20" />
+              <g class="icn" transform="translate(530,214)">
+                <path d="M-8 7V-1" />
+                <path d="M0 7V-6" />
+                <path d="M8 7V2" />
+              </g>
+            </g>
+            <text class="lbl" style="--dl:2.05s" x="530" y="270">Data</text>
+            <circle class="hit" cx="530" cy="214" r="46" />
+          </g>
+
+          <!-- Décisions -->
+          <g class="decision">
+            <circle class="halo" cx="320" cy="386" r="60" fill="url(#fdGlow)" />
+            <circle class="ring" cx="320" cy="386" r="48" />
+            <g class="nd hub" style="--dl:3.05s">
+              <circle class="chip" cx="320" cy="386" r="36" />
+              <g class="icn" transform="translate(320,386)">
+                <path d="M-11 0L-3 9L12 -10" />
+              </g>
+            </g>
+            <text class="lbl lbl-key" style="--dl:3.2s" x="320" y="452">Décisions</text>
+          </g>
+        </svg>
+      </figure>
     </div>
-    <div class="flow">
-      <div class="flow-step">
-        <div class="flow-num">01</div>
-        <h3>Être visible</h3>
-        <p>Site web et présence en ligne alignée avec vos réseaux sociaux.</p>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="alt-bg">
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <span class="eyebrow">Services</span>
+        <h2>Deux façons de vous aider</h2>
+        <div class="rule"></div>
+        <p class="sub">Un même fil conducteur : transformer vos outils et vos données en résultats concrets.</p>
       </div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step">
-        <div class="flow-num">02</div>
-        <h3>Mieux travailler</h3>
-        <p>Applications de gestion et automatisations sur mesure.</p>
-      </div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step">
-        <div class="flow-num">03</div>
-        <h3>Comprendre son activité</h3>
-        <p>Analyse et visualisation de vos données.</p>
-      </div>
-      <span class="flow-arrow">→</span>
-      <div class="flow-step">
-        <div class="flow-num">04</div>
-        <h3>Décider</h3>
-        <p>Des choix appuyés sur des faits, pas des impressions.</p>
+      <div class="offers fade-up">
+        <div class="card offer">
+          <h3>Sites &amp; applications web</h3>
+          <p>Exister en ligne et simplifier votre quotidien avec des outils sur mesure.</p>
+          <ul>
+            <li><strong>Être trouvé</strong> : site vitrine professionnel, référencé sur Google</li>
+            <li><strong>Gagner du temps</strong> : gestion commerciale, facturation, devis, RH, comptabilité</li>
+            <li><strong>Automatiser</strong> : chatbots, relances et tâches répétitives</li>
+            <li><strong>Rester serein</strong> : hébergement, domaine et maintenance inclus</li>
+          </ul>
+        </div>
+        <div class="card offer gold">
+          <h3>Analyse de données</h3>
+          <p>Vos chiffres dorment dans des Excel. Je les fais parler pour éclairer vos décisions.</p>
+          <ul>
+            <li><strong>Voir clair</strong> : rapport mensuel (CA, rentabilité, tendances)</li>
+            <li><strong>Suivre ce qui compte</strong> : ventes, stocks, clients, rendez-vous</li>
+            <li><strong>Dashboards interactifs</strong> : Power BI / Streamlit</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="services">
-    <h2>Deux façons de vous aider</h2>
-    <p class="sub">Un même fil conducteur : transformer vos outils et vos données en résultats concrets.</p>
-    <div class="grid g2">
-      <div class="card offer">
-        <h3>🌐 Sites & applications web</h3>
-        <p>Sites vitrines, plateformes de gestion et boutiques en ligne · conçus, développés, hébergés et maintenus.</p>
-        <ul>
-          <li>Site vitrine professionnel (référencement inclus)</li>
-          <li>Applications métier : facturation, RH, comptabilité, messagerie</li>
-          <li>Chatbots et automatisations</li>
-          <li>Hébergement, nom de domaine, maintenance</li>
-        </ul>
-      </div>
-      <div class="card offer alt">
-        <h3>📊 Analyse de données</h3>
-        <p>Vos chiffres dorment dans des Excel et des logiciels. Je les réunis et je les fais parler : rapport clair, dashboard, décisions.</p>
-        <ul>
-          <li>Rapport d'analyse mensuel (CA, rentabilité, tendances)</li>
-          <li>Dashboards interactifs Power BI / Streamlit</li>
-          <li>Nettoyage et structuration de données</li>
-          <li><strong>Première analyse offerte</strong> sur vos données du dernier mois</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
+  <!-- ============ RÉALISATIONS ============ -->
   <section id="projets">
-    <h2>Réalisations</h2>
-    <p class="sub">Des études de cas courtes, dans l'ordre de la démarche : rendre visible, outiller, analyser, aider à décider.</p>
-    <div class="cases">
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <span class="eyebrow">Réalisations</span>
+        <h2>Des projets, dans l'ordre de la démarche</h2>
+        <div class="rule"></div>
+        <p class="sub">Rendre visible, outiller, analyser, aider à décider : quelques études de cas courtes.</p>
+      </div>
+      <div class="cases fade-up">
 
-      <!-- 01 · VISIBILITÉ -->
-      <article class="case">
-        <div class="case-media">
-          <!-- Remplacer par : <img src="images/site-sante.png" alt="Aperçu du site vitrine santé"> -->
-          <span class="ph">Aperçu à venir</span>
-        </div>
-        <div class="case-body">
-          <span class="case-cat">Visibilité</span>
-          <h3>Site vitrine & espace d'administration</h3>
-          <div class="case-block">
-            <span class="case-label">Contexte</span>
-            <p class="case-context">Une structure du secteur santé n'avait aucune vitrine en ligne et dépendait d'un tiers pour la moindre mise à jour.</p>
+        <article class="card case">
+          <div class="case-media">
+            <!-- Remplacer par : <img src="images/site-sante.png" alt="Aperçu du site vitrine santé"> -->
+            <svg class="mesh" viewBox="0 0 320 180" preserveAspectRatio="none" fill="none"
+              stroke="rgba(212,163,115,.45)" stroke-width=".8">
+              <path d="M30 140L80 60 150 95 210 40 280 80" />
+              <path d="M80 60L150 95 130 150 30 140" />
+              <path d="M210 40L280 80 240 140 150 95" />
+              <circle cx="30" cy="140" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="80" cy="60" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="150" cy="95" r="4" fill="#fff" stroke="none" />
+              <circle cx="210" cy="40" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="280" cy="80" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="130" cy="150" r="3" fill="#fff" stroke="none" />
+              <circle cx="240" cy="140" r="3" fill="#D4A373" stroke="none" />
+            </svg>
+            <span class="ph">Aperçu à venir</span>
           </div>
-          <div class="case-block">
-            <span class="case-label">Solution</span>
-            <p class="case-solution">Un site professionnel avec un espace d'administration complet, pour que l'équipe publie et modifie son contenu en toute autonomie.</p>
+          <div class="case-body">
+            <span class="case-cat">Visibilité</span>
+            <h3>Site vitrine &amp; espace d'administration</h3>
+            <div class="case-block">
+              <span class="case-label">Contexte</span>
+              <p class="case-context">Une structure du secteur santé n'avait aucune vitrine en ligne et dépendait d'un
+                tiers pour la moindre mise à jour.</p>
+            </div>
+            <div class="case-block">
+              <span class="case-label">Solution</span>
+              <p class="case-solution">Un site professionnel avec un espace d'administration complet, pour que l'équipe
+                publie et modifie son contenu en toute autonomie.</p>
+            </div>
+            <div class="case-tech">
+              <span class="tech-badge">Laravel</span>
+              <span class="tech-badge">PHP</span>
+              <span class="tech-badge">MySQL</span>
+            </div>
+            <p class="case-private">Projet client · code privé</p>
           </div>
-          <div class="case-tech">
-            <span class="tech-badge">Laravel</span>
-            <span class="tech-badge">PHP</span>
-            <span class="tech-badge">MySQL</span>
-          </div>
-          <p class="case-private">Projet client · code privé</p>
-        </div>
-      </article>
+        </article>
 
-      <!-- 02 · VISIBILITÉ -->
-      <article class="case">
-        <div class="case-media">
-          <!-- Remplacer par : <img src="images/com-digitale.png" alt="Aperçu du site & communication digitale"> -->
-          <span class="ph">Aperçu à venir</span>
-        </div>
-        <div class="case-body">
-          <span class="case-cat">Visibilité</span>
-          <h3>Site & communication digitale</h3>
-          <div class="case-block">
-            <span class="case-label">Contexte</span>
-            <p class="case-context">Une entreprise de services voulait une présence en ligne cohérente avec ses réseaux sociaux, sans avoir à la gérer elle-même.</p>
+        <article class="card case">
+          <div class="case-media">
+            <!-- Remplacer par : <img src="images/com-digitale.png" alt="Aperçu du site & communication digitale"> -->
+            <svg class="mesh" viewBox="0 0 320 180" preserveAspectRatio="none" fill="none"
+              stroke="rgba(212,163,115,.45)" stroke-width=".8">
+              <path d="M40 50L110 110 190 60 260 130" />
+              <path d="M110 110L120 40 190 60" />
+              <path d="M190 60L280 45 260 130" />
+              <circle cx="40" cy="50" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="110" cy="110" r="4" fill="#fff" stroke="none" />
+              <circle cx="120" cy="40" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="190" cy="60" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="280" cy="45" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="260" cy="130" r="3" fill="#fff" stroke="none" />
+            </svg>
+            <span class="ph">Aperçu à venir</span>
           </div>
-          <div class="case-block">
-            <span class="case-label">Solution</span>
-            <p class="case-solution">Un site web et un accompagnement en communication digitale en abonnement annuel : contenus, référencement et cohérence entre tous les canaux.</p>
+          <div class="case-body">
+            <span class="case-cat">Visibilité</span>
+            <h3>Site &amp; communication digitale</h3>
+            <div class="case-block">
+              <span class="case-label">Contexte</span>
+              <p class="case-context">Une entreprise de services voulait une présence en ligne cohérente avec ses
+                réseaux sociaux, sans avoir à la gérer elle-même.</p>
+            </div>
+            <div class="case-block">
+              <span class="case-label">Solution</span>
+              <p class="case-solution">Un site web et un accompagnement en communication digitale en abonnement annuel :
+                contenus, référencement et cohérence entre tous les canaux.</p>
+            </div>
+            <div class="case-tech">
+              <span class="tech-badge">Web</span>
+              <span class="tech-badge">SEO</span>
+              <span class="tech-badge">Réseaux sociaux</span>
+            </div>
+            <p class="case-private">Projet client · code privé</p>
           </div>
-          <div class="case-tech">
-            <span class="tech-badge">Web</span>
-            <span class="tech-badge">SEO</span>
-            <span class="tech-badge">Réseaux sociaux</span>
-          </div>
-          <p class="case-private">Projet client · code privé</p>
-        </div>
-      </article>
+        </article>
 
-      <!-- 03 · VISIBILITÉ → VENTE -->
-      <article class="case">
-        <div class="case-media">
-          <!-- Remplacer par : <img src="images/ecommerce-mode.png" alt="Aperçu de la boutique e-commerce mode"> -->
-          <span class="ph">Aperçu à venir</span>
-        </div>
-        <div class="case-body">
-          <span class="case-cat">Visibilité · Vente en ligne</span>
-          <h3>Boutique e-commerce</h3>
-          <div class="case-block">
-            <span class="case-label">Contexte</span>
-            <p class="case-context">Une marque de prêt-à-porter voulait vendre en ligne, mais chaque mise à jour manuelle du site créait un risque d'erreur et d'indisponibilité.</p>
+        <article class="card case">
+          <div class="case-media">
+            <!-- Remplacer par : <img src="images/ecommerce-mode.png" alt="Aperçu de la boutique e-commerce mode"> -->
+            <svg class="mesh" viewBox="0 0 320 180" preserveAspectRatio="none" fill="none"
+              stroke="rgba(212,163,115,.45)" stroke-width=".8">
+              <path d="M50 130L100 50 180 90 240 45 285 110" />
+              <path d="M100 50L180 90 160 145 50 130" />
+              <circle cx="50" cy="130" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="100" cy="50" r="3" fill="#fff" stroke="none" />
+              <circle cx="180" cy="90" r="4" fill="#3ea3b5" stroke="none" />
+              <circle cx="240" cy="45" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="285" cy="110" r="3" fill="#fff" stroke="none" />
+              <circle cx="160" cy="145" r="3" fill="#3ea3b5" stroke="none" />
+            </svg>
+            <span class="ph">Aperçu à venir</span>
           </div>
-          <div class="case-block">
-            <span class="case-label">Solution</span>
-            <p class="case-solution">Une boutique en ligne responsive, avec un déploiement automatisé (CI/CD) : les mises à jour partent en production déjà testées, sans manipulation risquée.</p>
+          <div class="case-body">
+            <span class="case-cat">Visibilité · Vente en ligne</span>
+            <h3>Boutique e-commerce</h3>
+            <div class="case-block">
+              <span class="case-label">Contexte</span>
+              <p class="case-context">Une marque de prêt-à-porter voulait vendre en ligne, mais chaque mise à jour
+                manuelle du site créait un risque d'erreur et d'indisponibilité.</p>
+            </div>
+            <div class="case-block">
+              <span class="case-label">Solution</span>
+              <p class="case-solution">Une boutique en ligne responsive, avec un déploiement automatisé (CI/CD) : les
+                mises à jour partent en production déjà testées, sans manipulation risquée.</p>
+            </div>
+            <div class="case-tech">
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">GitHub</span>
+              <span class="tech-badge">CI/CD</span>
+            </div>
+            <p class="case-private">Projet client · code privé</p>
           </div>
-          <div class="case-tech">
-            <span class="tech-badge">JavaScript</span>
-            <span class="tech-badge">GitHub</span>
-            <span class="tech-badge">CI/CD</span>
-          </div>
-          <p class="case-private">Projet client · code privé</p>
-        </div>
-      </article>
+        </article>
 
-      <!-- 04 · OUTILS NUMÉRIQUES -->
-      <article class="case">
-        <div class="case-media">
-          <!-- Remplacer par : <img src="images/plateforme-gestion.png" alt="Aperçu de la plateforme de gestion"> -->
-          <span class="ph">Aperçu à venir</span>
-        </div>
-        <div class="case-body">
-          <span class="case-cat">Outils numériques</span>
-          <h3>Plateforme de gestion tout-en-un</h3>
-          <div class="case-block">
-            <span class="case-label">Contexte</span>
-            <p class="case-context">Une agence pilotait sa facturation, ses devis, sa comptabilité et ses RH avec plusieurs outils séparés, sans vue d'ensemble.</p>
+        <article class="card case">
+          <div class="case-media">
+            <!-- Remplacer par : <img src="images/plateforme-gestion.png" alt="Aperçu de la plateforme de gestion"> -->
+            <svg class="mesh" viewBox="0 0 320 180" preserveAspectRatio="none" fill="none"
+              stroke="rgba(212,163,115,.45)" stroke-width=".8">
+              <path d="M60 40L60 140 160 90 260 140 260 40 160 90z" />
+              <circle cx="60" cy="40" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="60" cy="140" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="160" cy="90" r="4" fill="#fff" stroke="none" />
+              <circle cx="260" cy="140" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="260" cy="40" r="3" fill="#D4A373" stroke="none" />
+            </svg>
+            <span class="ph">Aperçu à venir</span>
           </div>
-          <div class="case-block">
-            <span class="case-label">Solution</span>
-            <p class="case-solution">Une plateforme unique qui centralise tous ces processus, avec une gestion fine des rôles et une messagerie interne. Toute l'activité se pilote au même endroit.</p>
+          <div class="case-body">
+            <span class="case-cat">Outils numériques</span>
+            <h3>Plateforme de gestion tout-en-un</h3>
+            <div class="case-block">
+              <span class="case-label">Contexte</span>
+              <p class="case-context">Une agence pilotait sa facturation, ses devis, sa comptabilité et ses RH avec
+                plusieurs outils séparés, sans vue d'ensemble.</p>
+            </div>
+            <div class="case-block">
+              <span class="case-label">Solution</span>
+              <p class="case-solution">Une plateforme unique qui centralise tous ces processus, avec une gestion fine
+                des rôles et une messagerie interne. Toute l'activité se pilote au même endroit.</p>
+            </div>
+            <div class="case-tech">
+              <span class="tech-badge">Laravel</span>
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">Blade</span>
+            </div>
+            <p class="case-private">Projet client · code privé</p>
           </div>
-          <div class="case-tech">
-            <span class="tech-badge">Laravel</span>
-            <span class="tech-badge">MySQL</span>
-            <span class="tech-badge">Blade</span>
-          </div>
-          <p class="case-private">Projet client · code privé</p>
-        </div>
-      </article>
+        </article>
 
-      <!-- 05 · ANALYSE DE DONNÉES -->
-      <article class="case">
-        <div class="case-media">
-          <!-- Remplacer par : <img src="images/firerisk-dz.png" alt="Aperçu du dashboard FireRisk DZ"> -->
-          <span class="ph">Aperçu à venir</span>
-        </div>
-        <div class="case-body">
-          <span class="case-cat">Analyse de données</span>
-          <h3>FireRisk DZ · risque incendie en Algérie</h3>
-          <div class="case-block">
-            <span class="case-label">Contexte</span>
-            <p class="case-context">Les données météo et incendies en Algérie sont éparpillées et difficiles à exploiter pour anticiper le risque feu au niveau local.</p>
+        <article class="card case featured">
+          <div class="case-media">
+            <!-- Remplacer par : <img src="images/firerisk-dz.png" alt="Aperçu du dashboard FireRisk DZ"> -->
+            <svg class="mesh" viewBox="0 0 320 180" preserveAspectRatio="none" fill="none"
+              stroke="rgba(212,163,115,.55)" stroke-width=".9">
+              <path d="M25 150L70 100 120 125 170 55 220 85 270 30" />
+              <path d="M70 100L120 125 105 165 25 150" />
+              <path d="M170 55L220 85 200 145 120 125" />
+              <path d="M220 85L295 105 270 30" />
+              <circle cx="25" cy="150" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="70" cy="100" r="3" fill="#fff" stroke="none" />
+              <circle cx="120" cy="125" r="4" fill="#3ea3b5" stroke="none" />
+              <circle cx="170" cy="55" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="220" cy="85" r="4.5" fill="#D4A373" stroke="none" />
+              <circle cx="270" cy="30" r="3" fill="#fff" stroke="none" />
+              <circle cx="295" cy="105" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="105" cy="165" r="3" fill="#fff" stroke="none" />
+              <circle cx="200" cy="145" r="3" fill="#3ea3b5" stroke="none" />
+            </svg>
+            <span class="ph">Aperçu à venir</span>
           </div>
-          <div class="case-block">
-            <span class="case-label">Solution</span>
-            <p class="case-solution">Un pipeline ETL qui consolide 58 wilayas (2015-2023) et un tableau de bord qui rend le risque lisible wilaya par wilaya. Projet ouvert et réutilisable.</p>
+          <div class="case-body">
+            <span class="case-flag">★ Projet phare</span>
+            <span class="case-cat">Analyse de données</span>
+            <h3>FireRisk DZ · risque incendie en Algérie</h3>
+            <div class="case-block">
+              <span class="case-label">Contexte</span>
+              <p class="case-context">Les données météo et incendies en Algérie sont éparpillées et difficiles à
+                exploiter pour anticiper le risque feu au niveau local.</p>
+            </div>
+            <div class="case-block">
+              <span class="case-label">Solution</span>
+              <p class="case-solution">Un pipeline ETL qui consolide 58 wilayas (2015-2023) et un tableau de bord qui
+                rend le risque lisible wilaya par wilaya. Projet ouvert et réutilisable.</p>
+            </div>
+            <div class="case-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">ETL</span>
+              <span class="tech-badge">Streamlit</span>
+              <span class="tech-badge">pandas</span>
+            </div>
+            <div class="case-actions">
+              <a class="case-btn primary" href="https://github.com/kenzakab16/firerisk-dz-dashboard">Voir le
+                dashboard</a>
+              <a class="case-btn ghost" href="https://github.com/kenzakab16/firerisk-dz-data">Données</a>
+            </div>
           </div>
-          <div class="case-tech">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">ETL</span>
-            <span class="tech-badge">Streamlit</span>
-            <span class="tech-badge">pandas</span>
-          </div>
-          <div class="case-actions">
-            <a class="case-btn primary" href="https://github.com/kenzakab16/firerisk-dz-dashboard">Voir le dashboard</a>
-            <a class="case-btn ghost" href="https://github.com/kenzakab16/firerisk-dz-data">Données (GitHub)</a>
-          </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- 06 · ANTICIPER / DÉCIDER -->
-      <article class="case">
-        <div class="case-media">
-          <!-- Remplacer par : <img src="images/prediction-ml.png" alt="Aperçu des modèles de prédiction"> -->
-          <span class="ph">Aperçu à venir</span>
-        </div>
-        <div class="case-body">
-          <span class="case-cat">Anticiper · Décider</span>
-          <h3>Modèles de prédiction</h3>
-          <div class="case-block">
-            <span class="case-label">Contexte</span>
-            <p class="case-context">Savoir à l'avance quels clients risquent de partir, ou repérer un risque médical, change les décisions d'une organisation.</p>
+        <article class="card case">
+          <div class="case-media">
+            <!-- Remplacer par : <img src="images/prediction-ml.png" alt="Aperçu des modèles de prédiction"> -->
+            <svg class="mesh" viewBox="0 0 320 180" preserveAspectRatio="none" fill="none"
+              stroke="rgba(212,163,115,.45)" stroke-width=".8">
+              <path d="M40 145L90 95 140 115 195 50 250 75 290 35" />
+              <path d="M90 95L140 115 130 60 90 95" />
+              <circle cx="40" cy="145" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="90" cy="95" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="140" cy="115" r="4" fill="#fff" stroke="none" />
+              <circle cx="130" cy="60" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="195" cy="50" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="250" cy="75" r="3" fill="#fff" stroke="none" />
+              <circle cx="290" cy="35" r="3" fill="#D4A373" stroke="none" />
+            </svg>
+            <span class="ph">Aperçu à venir</span>
           </div>
-          <div class="case-block">
-            <span class="case-label">Solution</span>
-            <p class="case-solution">Des modèles entraînés de bout en bout : prédiction de départ client (churn) et classification de diagnostic, du nettoyage des données jusqu'à l'évaluation.</p>
+          <div class="case-body">
+            <span class="case-cat">Anticiper · Décider</span>
+            <h3>Modèles de prédiction</h3>
+            <div class="case-block">
+              <span class="case-label">Contexte</span>
+              <p class="case-context">Savoir à l'avance quels clients risquent de partir, ou repérer un risque médical,
+                change les décisions d'une organisation.</p>
+            </div>
+            <div class="case-block">
+              <span class="case-label">Solution</span>
+              <p class="case-solution">Des modèles entraînés de bout en bout : prédiction de départ client (churn) et
+                classification de diagnostic, du nettoyage des données jusqu'à l'évaluation.</p>
+            </div>
+            <div class="case-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">scikit-learn</span>
+              <span class="tech-badge">Jupyter</span>
+            </div>
+            <div class="case-actions">
+              <a class="case-btn primary" href="https://github.com/kenzakab16/classification-bank-churn">Churn</a>
+              <a class="case-btn ghost" href="https://github.com/kenzakab16/classification-breast-cancer">Diagnostic</a>
+            </div>
           </div>
-          <div class="case-tech">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">scikit-learn</span>
-            <span class="tech-badge">Jupyter</span>
-          </div>
-          <div class="case-actions">
-            <a class="case-btn primary" href="https://github.com/kenzakab16/classification-bank-churn">Churn (GitHub)</a>
-            <a class="case-btn ghost" href="https://github.com/kenzakab16/classification-breast-cancer">Diagnostic (GitHub)</a>
-          </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- 07 · ANALYSE DE DONNÉES -->
-      <article class="case">
-        <div class="case-media">
-          <!-- Remplacer par : <img src="images/data-multi.png" alt="Aperçu des projets data multi-secteurs"> -->
-          <span class="ph">Aperçu à venir</span>
-        </div>
-        <div class="case-body">
-          <span class="case-cat">Analyse de données</span>
-          <h3>Projets data multi-secteurs</h3>
-          <div class="case-block">
-            <span class="case-label">Contexte</span>
-            <p class="case-context">Chaque secteur a ses propres questions : météo, santé publique, marketing, transport.</p>
+        <article class="card case">
+          <div class="case-media">
+            <!-- Remplacer par : <img src="images/data-multi.png" alt="Aperçu des projets data multi-secteurs"> -->
+            <svg class="mesh" viewBox="0 0 320 180" preserveAspectRatio="none" fill="none"
+              stroke="rgba(212,163,115,.45)" stroke-width=".8">
+              <path d="M45 70L105 130 165 65 225 125 285 60" />
+              <path d="M105 130L165 65 225 125" />
+              <path d="M45 70L165 65 285 60" />
+              <circle cx="45" cy="70" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="105" cy="130" r="3" fill="#3ea3b5" stroke="none" />
+              <circle cx="165" cy="65" r="4" fill="#fff" stroke="none" />
+              <circle cx="225" cy="125" r="3" fill="#D4A373" stroke="none" />
+              <circle cx="285" cy="60" r="3" fill="#3ea3b5" stroke="none" />
+            </svg>
+            <span class="ph">Aperçu à venir</span>
           </div>
-          <div class="case-block">
-            <span class="case-label">Solution</span>
-            <p class="case-solution">Analyses et visualisations sur données réelles : météo Algérie, espérance de vie, pipelines ETL Covid, campagnes marketing, projet SQL aéroportuaire.</p>
+          <div class="case-body">
+            <span class="case-cat">Analyse de données</span>
+            <h3>Projets data multi-secteurs</h3>
+            <div class="case-block">
+              <span class="case-label">Contexte</span>
+              <p class="case-context">Chaque secteur a ses propres questions : météo, santé publique, marketing,
+                transport.</p>
+            </div>
+            <div class="case-block">
+              <span class="case-label">Solution</span>
+              <p class="case-solution">Analyses et visualisations sur données réelles : météo Algérie, espérance de vie,
+                pipelines ETL Covid, campagnes marketing, projet SQL aéroportuaire.</p>
+            </div>
+            <div class="case-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">SQL</span>
+              <span class="tech-badge">pandas</span>
+              <span class="tech-badge">Streamlit</span>
+            </div>
+            <div class="case-actions">
+              <a class="case-btn primary" href="https://github.com/kenzakab16?tab=repositories">Tous les projets</a>
+            </div>
           </div>
-          <div class="case-tech">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">SQL</span>
-            <span class="tech-badge">pandas</span>
-            <span class="tech-badge">Streamlit</span>
-          </div>
-          <div class="case-actions">
-            <a class="case-btn primary" href="https://github.com/kenzakab16?tab=repositories">Tous les projets (GitHub)</a>
-          </div>
-        </div>
-      </article>
+        </article>
 
+      </div>
     </div>
   </section>
 
-  <section id="competences" class="skills">
-    <h2>Compétences</h2>
-    <p class="sub">Un profil hybride : technique, data et communication.</p>
-    <div class="grid g3">
-      <div class="card">
-        <h3>📊 Data & ML</h3>
-        <ul>
-          <li>Python · pandas, numpy, matplotlib, seaborn, scikit-learn</li>
-          <li>SQL · MySQL</li>
-          <li>Power BI · Streamlit</li>
-          <li>ML supervisé & non supervisé · Deep Learning</li>
-          <li>MLOps : FastAPI, Docker, MLflow, EvidentlyAI</li>
-          <li>En cours : GenAI (RAG, agents), Airflow</li>
-        </ul>
+  <!-- ============ COMPÉTENCES ============ -->
+  <section id="competences" class="alt-bg">
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <span class="eyebrow">Compétences</span>
+        <h2>Ce que je maîtrise</h2>
+        <div class="rule"></div>
+        <p class="sub">Un profil hybride : technique, data et communication.</p>
       </div>
-      <div class="card">
-        <h3>💻 Web</h3>
-        <ul>
-          <li>Laravel, PHP, JavaScript, HTML5, CSS3</li>
-          <li>Vue.js, jQuery, Bootstrap</li>
-          <li>Sites vitrines & e-commerce</li>
-          <li>Git, GitHub, CI/CD</li>
-          <li>Authentification & sécurité · hébergement & domaines</li>
-          <li>Chatbots</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>📣 Digital & gestion</h3>
-        <ul>
-          <li>Conduite de projets · méthodes agiles (Scrum)</li>
-          <li>Management d'équipe (3 développeurs)</li>
-          <li>Stratégie digitale, SEO, Meta Ads (Meta Certified)</li>
-          <li>Photoshop · Canva</li>
-          <li>Kabyle (natif) · Français (C2) · Arabe · Anglais (B1)</li>
-        </ul>
+      <div class="skills-grid fade-up">
+        <div class="card skill-card">
+          <h3>Data &amp; Machine Learning</h3>
+          <div class="rule"></div>
+          <ul>
+            <li>Python · pandas, numpy, matplotlib, seaborn, scikit-learn</li>
+            <li>SQL · MySQL</li>
+            <li>Power BI · Streamlit</li>
+            <li>ML supervisé &amp; non supervisé · Deep Learning</li>
+            <li>MLOps : FastAPI, Docker, MLflow, EvidentlyAI</li>
+            <li>En cours : GenAI (RAG, agents), Airflow</li>
+          </ul>
+        </div>
+        <div class="card skill-card">
+          <h3>Développement Web</h3>
+          <div class="rule"></div>
+          <ul>
+            <li>Laravel, PHP, JavaScript, HTML5, CSS3</li>
+            <li>Vue.js, jQuery, Bootstrap</li>
+            <li>Sites vitrines &amp; e-commerce</li>
+            <li>Git, GitHub, CI/CD</li>
+            <li>Authentification &amp; sécurité · hébergement &amp; domaines</li>
+            <li>Chatbots</li>
+          </ul>
+        </div>
+        <div class="card skill-card">
+          <h3>Digital &amp; Gestion</h3>
+          <div class="rule"></div>
+          <ul>
+            <li>Conduite de projets · méthodes agiles (Scrum)</li>
+            <li>Management d'équipe (3 développeurs)</li>
+            <li>Stratégie digitale, SEO, Meta Ads (Meta Certified)</li>
+            <li>Photoshop · Canva</li>
+            <li>Kabyle (natif) · Français (C2) · Arabe · Anglais (B1)</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ À PROPOS ============ -->
   <section id="apropos">
-    <h2>À propos</h2>
-    <div class="about">
-      <p>J'ai commencé comme <strong>développeuse web</strong>, en concevant des sites internet et des applications sur mesure pour répondre aux besoins des entreprises. En rejoignant l'équipe <strong>marketing digital</strong>, que je dirige aujourd'hui, j'ai appris qu'un bon outil ne se résume pas à sa qualité technique : il doit aussi répondre à des objectifs concrets, s'intégrer à une stratégie de communication et créer de la valeur pour l'entreprise.</p>
-      <p>Au fil des projets, j'ai constaté que de nombreuses entreprises collectaient déjà une grande quantité de données — ventes, rendez-vous, devis, trafic web ou interactions clients — sans toujours les exploiter pleinement pour piloter leur activité. Je me suis alors formée sérieusement à l'<strong>analyse de données et au machine learning</strong>, pour transformer ce trésor dormant en décisions concrètes.</p>
-      <p>Aujourd'hui, je réunis le développement web, le marketing digital et l'analyse de données autour d'un même objectif : concevoir des solutions qui améliorent la visibilité des entreprises, simplifient leur fonctionnement et les aident à prendre des décisions plus éclairées.</p>
-    </div>
-  </section>
-
-  <section id="parcours">
-    <h2>Mon parcours</h2>
-    <p class="sub">Du développement web à la data, en passant par le marketing digital · chaque étape nourrit la suivante.</p>
-    <div class="timeline">
-      <div class="step">
-        <div class="when">2015 – 2020</div>
-        <h3>Licence puis Master Informatique · Université Mouloud Mammeri, Tizi-Ouzou</h3>
-        <p>Master spécialité conduite de projets informatiques : une formation qui structure encore ma façon de livrer · cadrage, planning, résultat.</p>
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <span class="eyebrow">À propos</span>
+        <h2>Du code au marketing, du marketing à la donnée</h2>
+        <div class="rule"></div>
       </div>
-      <div class="step">
-        <div class="when">Déc. 2020 – Déc. 2022</div>
-        <h3>Développeuse Full Stack · Psycom Agency</h3>
-        <p>Conception et développement de sites dynamiques et responsives : Laravel, JavaScript, bases de données, authentification et sécurité.</p>
-      </div>
-      <div class="step">
-        <div class="when">Jan. 2023 – aujourd'hui</div>
-        <h3>Cheffe d'équipe développement · Psycom Agency</h3>
-        <p>Management de 3 développeurs, gestion de projets agiles de bout en bout, relation client et reporting direction.</p>
-      </div>
-      <div class="step">
-        <div class="when">2024 – 2025</div>
-        <h3>Marketing digital & virage data</h3>
-        <p>Formation Advanced Digital Marketing (GOMyCode, Meta Certified), puis spécialiste marketing digital en freelance. En parallèle, début du parcours data : FUN MOOC, Coursera, puis Data Science chez Code213.</p>
-      </div>
-      <div class="step">
-        <div class="when">Aujourd'hui</div>
-        <h3>Data & Machine Learning · formation ML-PRO (Machine Learnia)</h3>
-        <p>Algorithmes ML, Deep Learning, MLOps (FastAPI, Docker, MLflow), IA générative, apprentissage par renforcement · et des projets réels livrés à des clients.</p>
+      <div class="prose fade-up">
+        <p>J'ai commencé comme <strong>développeuse web</strong>, en concevant des sites et des applications sur
+          mesure. En dirigeant ensuite l'équipe <strong>marketing digital</strong>, j'ai compris qu'un bon outil ne
+          vaut pas que par sa technique : il doit servir des objectifs concrets et créer de la valeur.</p>
+        <p>Au fil des projets, un constat s'est imposé : beaucoup d'entreprises collectent déjà de nombreuses données
+          (ventes, rendez-vous, devis, trafic web, clients) sans vraiment les exploiter. Je me suis alors formée
+          sérieusement à l'<strong>analyse de données et au machine learning</strong>, pour transformer ce trésor
+          dormant en décisions concrètes.</p>
+        <p>Aujourd'hui, je réunis le développement web, le marketing digital et l'analyse de données autour d'un même
+          objectif : concevoir des solutions qui améliorent la visibilité des entreprises, simplifient leur
+          fonctionnement et les aident à prendre des décisions plus éclairées.</p>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="cta" id="contact">
-      <h2>Un projet web ? Des données inexploitées ?</h2>
-      <p>Parlons-en. Et si vous hésitez sur la data : envoyez-moi vos données du dernier mois, la première analyse est offerte, utile, on continue ; sinon vous n'avez rien perdu.</p>
-      <a class="btn btn-primary" href="mailto:kenzakab16@gmail.com">kenzakab16@gmail.com</a>
+  <!-- ============ PARCOURS ============ -->
+  <section id="parcours" class="alt-bg">
+    <div class="wrap">
+      <div class="section-head fade-up">
+        <span class="eyebrow">Parcours</span>
+        <h2>Chaque étape nourrit la suivante</h2>
+        <div class="rule"></div>
+        <p class="sub">Du développement web à la data, en passant par le marketing digital.</p>
+      </div>
+      <div class="timeline fade-up">
+        <div class="step">
+          <div class="when">2015 – 2020</div>
+          <h3>Licence puis Master Informatique · Université Mouloud Mammeri, Tizi-Ouzou</h3>
+          <p>Master spécialité conduite de projets informatiques : une formation qui structure encore ma façon de
+            livrer · cadrage, planning, résultat.</p>
+        </div>
+        <div class="step">
+          <div class="when">Déc. 2020 – Déc. 2022</div>
+          <h3>Développeuse Full Stack · Psycom Agency</h3>
+          <p>Conception et développement de sites dynamiques et responsives : Laravel, JavaScript, bases de données,
+            authentification et sécurité.</p>
+        </div>
+        <div class="step">
+          <div class="when">Jan. 2023 – aujourd'hui</div>
+          <h3>Cheffe d'équipe développement · Psycom Agency</h3>
+          <p>Management de 3 développeurs, gestion de projets agiles de bout en bout, relation client et reporting
+            direction.</p>
+        </div>
+        <div class="step">
+          <div class="when">2024 – 2025</div>
+          <h3>Marketing digital &amp; virage data</h3>
+          <p>Formation Advanced Digital Marketing (GOMyCode, Meta Certified), puis spécialiste marketing digital en
+            freelance. En parallèle, début du parcours data : FUN MOOC, Coursera, puis Data Science chez Code213.</p>
+        </div>
+        <div class="step">
+          <div class="when">Aujourd'hui</div>
+          <h3>Data &amp; Machine Learning · formation ML-PRO (Machine Learnia)</h3>
+          <p>Algorithmes ML, Deep Learning, MLOps (FastAPI, Docker, MLflow), IA générative, apprentissage par
+            renforcement · et des projets réels livrés à des clients.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-</div>
-
-<footer>
-  <div class="contact-line">
-    <a href="mailto:kenzakab16@gmail.com">Email</a>
-    <a href="https://github.com/kenzakab16">GitHub</a>
-    <a href="https://www.linkedin.com/in/kenzakabeche">LinkedIn</a>
+  <!-- ============ CTA ============ -->
+  <div class="cta-section">
+    <div class="wrap">
+      <div class="cta" id="contact">
+        <canvas id="mesh-cta"></canvas>
+        <div class="cta-inner">
+          <span class="eyebrow">Contact</span>
+          <h2>Passons de vos données à vos <em>décisions</em>.</h2>
+          <a class="btn btn-primary" href="mailto:kenzakab16@gmail.com">Discutons de votre projet</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>© 2026 Kenza Kabeche · Tizi Ouzou, Algérie</div>
-</footer>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo-white.png" alt="Kenza Kabeche">
+          <span class="n">Kenza Kabeche</span>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:kenzakab16@gmail.com">Email</a>
+          <a href="https://github.com/kenzakab16">GitHub</a>
+          <a href="https://www.linkedin.com/in/kenzakabeche">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Kenza Kabeche · Tizi Ouzou, Algérie</span>
+        <span class="tag">Connecter. Concevoir. Comprendre. Décider.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== Motif « réseau maillé » animé ===== */
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function initMesh(canvas, density) {
+        var ctx = canvas.getContext('2d');
+        var nodes = [], w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var COLORS = ['#D4A373', '#3ea3b5', '#ffffff'];
+
+        function resize() {
+          var r = canvas.getBoundingClientRect();
+          w = r.width; h = r.height;
+          canvas.width = w * dpr; canvas.height = h * dpr;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          build();
+        }
+
+        function build() {
+          var count = Math.round((w * h) / density);
+          count = Math.max(18, Math.min(count, 80));
+          nodes = [];
+          for (var i = 0; i < count; i++) {
+            nodes.push({
+              x: Math.random() * w,
+              y: Math.random() * h,
+              vx: (Math.random() - .5) * .22,
+              vy: (Math.random() - .5) * .22,
+              r: Math.random() * 2 + 1.4,
+              c: COLORS[Math.floor(Math.random() * COLORS.length)]
+            });
+          }
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, w, h);
+          var LINK = 150;
+          for (var i = 0; i < nodes.length; i++) {
+            for (var j = i + 1; j < nodes.length; j++) {
+              var dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+              var d = Math.sqrt(dx * dx + dy * dy);
+              if (d < LINK) {
+                ctx.strokeStyle = 'rgba(212,163,115,' + (0.3 * (1 - d / LINK)).toFixed(3) + ')';
+                ctx.lineWidth = .7;
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x, nodes[i].y);
+                ctx.lineTo(nodes[j].x, nodes[j].y);
+                ctx.stroke();
+              }
+            }
+          }
+          for (var k = 0; k < nodes.length; k++) {
+            var n = nodes[k];
+            ctx.fillStyle = n.c;
+            ctx.globalAlpha = .85;
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+          }
+        }
+
+        var running = false, rafId = null, last = 0;
+
+        function step(ts) {
+          rafId = requestAnimationFrame(step);
+          /* plafonné à ~30 fps */
+          if (ts - last < 33) return;
+          last = ts;
+          for (var i = 0; i < nodes.length; i++) {
+            var n = nodes[i];
+            n.x += n.vx; n.y += n.vy;
+            if (n.x < 0 || n.x > w) n.vx *= -1;
+            if (n.y < 0 || n.y > h) n.vy *= -1;
+          }
+          draw();
+        }
+
+        function start() {
+          if (running || reduce) return;
+          running = true; last = 0;
+          rafId = requestAnimationFrame(step);
+        }
+        function stop() {
+          running = false;
+          if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+        draw();
+
+        /* on n'anime que si le canvas est réellement à l'écran */
+        if (!reduce && 'IntersectionObserver' in window) {
+          new IntersectionObserver(function (entries) {
+            entries[0].isIntersecting ? start() : stop();
+          }, { threshold: 0 }).observe(canvas);
+        } else if (!reduce) {
+          start();
+        }
+
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) stop();
+        });
+      }
+
+      var hero = document.getElementById('mesh-hero');
+      var cta = document.getElementById('mesh-cta');
+      if (hero) initMesh(hero, 11000);
+      if (cta) initMesh(cta, 9000);
+    })();
+
+    /* ===== Schéma interactif : tracé progressif au premier passage ===== */
+    (function () {
+      var fd = document.getElementById('flow-diagram');
+      if (!fd) return;
+
+      /* chaque trait démarre masqué sur sa propre longueur */
+      var lines = fd.querySelectorAll('.ln');
+      Array.prototype.forEach.call(lines, function (p) {
+        p.style.setProperty('--len', p.getTotalLength().toFixed(1));
+      });
+
+      function play() { fd.classList.add('play'); }
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { play(); return; }
+      if (!('IntersectionObserver' in window)) { play(); return; }
+
+      var io = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { play(); io.disconnect(); }
+      }, { threshold: .35 });
+      io.observe(fd);
+    })();
+
+    /* ===== Apparition au scroll ===== */
+    (function () {
+      var els = document.querySelectorAll('.fade-up');
+      if (!('IntersectionObserver' in window)) {
+        Array.prototype.forEach.call(els, function (el) { el.classList.add('show'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+        });
+      }, { threshold: .12, rootMargin: '0px 0px -50px 0px' });
+      Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+    })();
+  </script>
 
 </body>
+
 </html>
