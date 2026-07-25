@@ -4,11 +4,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kenza Kabeche · Communication · Design · Web · Data · variante 2</title>
+  <title>Kenza Kabeche · Développeuse Full Stack &amp; Data Analyst</title>
   <meta name="description"
-    content="Développeuse web et data analyst à Tizi Ouzou. Sites web, applications de gestion, dashboards et analyse de données pour PME, cliniques et écoles.">
+    content="Développeuse Full Stack et Data Analyst à Tizi Ouzou. Sites web, applications de gestion, dashboards et analyse de données pour PME, cliniques et écoles. Disponible en freelance.">
+  <link rel="canonical" href="https://kenzakab16.github.io/">
   <link rel="icon" href="assets/favicon-tile.png">
   <link rel="apple-touch-icon" href="assets/favicon-tile.png">
+
+  <!-- Partage sur LinkedIn, WhatsApp, Slack… -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kenzakab16.github.io/">
+  <meta property="og:title" content="Kenza Kabeche · Développeuse Full Stack &amp; Data Analyst">
+  <meta property="og:description"
+    content="Sites web, applications de gestion et analyse de données pour les entreprises. Tizi Ouzou, Algérie.">
+  <meta property="og:image" content="https://kenzakab16.github.io/assets/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kenza Kabeche · Développeuse Full Stack &amp; Data Analyst">
+  <meta name="twitter:description"
+    content="Sites web, applications de gestion et analyse de données pour les entreprises.">
+  <meta name="twitter:image" content="https://kenzakab16.github.io/assets/og-cover.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kenza Kabeche",
+    "jobTitle": "Développeuse Full Stack & Data Analyst",
+    "url": "https://kenzakab16.github.io/",
+    "email": "mailto:kenzakab16@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Tizi Ouzou", "addressCountry": "DZ" },
+    "sameAs": [
+      "https://github.com/kenzakab16",
+      "https://www.linkedin.com/in/kenzakabeche"
+    ],
+    "knowsAbout": ["Développement web", "Laravel", "Python", "Analyse de données", "Machine Learning", "Marketing digital"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -35,7 +69,8 @@
       --gray-100: #F4F5F7;
       --gray-200: #E5E8EC;
       --gray-300: #C9D0D8;
-      --gray-500: #667487;
+      /* assombri : 4,44:1 -> 5,7:1 sur le fond crème (seuil WCAG AA = 4,5:1) */
+      --gray-500: #5A6675;
       --gray-700: #314052;
 
       --text: #132235;
@@ -90,7 +125,8 @@
 
       line-height: 1.8;
 
-      font-weight: 300;
+      /* 400 plutôt que 300 : le 300 d'Inter est trop fin sous 15px */
+      font-weight: 400;
 
       overflow-x: hidden;
 
@@ -331,7 +367,8 @@
        ================================================================= */
 
     .section-head h2 {
-      font-size: clamp(2rem, 3.6vw, 2.9rem);
+      /* plafonné pour ne pas écraser le H1 du hero */
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
     }
 
     .section-head .sub {
@@ -342,6 +379,33 @@
     .alt-bg {
       background: rgba(255, 255, 255, .55);
       border-block: 1px solid var(--gray-200);
+    }
+
+    /* ---------- Accessibilité ---------- */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 24px;
+      font-size: .78rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+
+    /* visible uniquement au clavier, jamais à la souris */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 2px;
     }
 
     /* ---------- Header ---------- */
@@ -416,6 +480,21 @@
     nav ul a:hover {
       color: var(--navy);
       border-bottom-color: var(--gold);
+    }
+
+    /* le contact se distingue des autres liens */
+    nav ul a.nav-cta {
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      padding: 9px 20px;
+      color: var(--navy);
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    nav ul a.nav-cta:hover {
+      background: var(--gold);
+      color: var(--navy);
     }
 
     @media(max-width:900px) {
@@ -501,9 +580,66 @@
       max-width: 620px;
     }
 
+    /* ligne d'identité : ce qu'un recruteur cherche en 5 secondes */
+    .hero-role {
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .hero-meta li {
+      font-size: .78rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, .72);
+      position: relative;
+    }
+
+    .hero-meta li+li::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .35);
+    }
+
+    /* pastille verte : signal de disponibilité */
+    .hero-meta .avail {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #7FD1AE;
+      font-weight: 500;
+    }
+
+    .hero-meta .avail::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #7FD1AE;
+      box-shadow: 0 0 0 3px rgba(127, 209, 174, .2);
+      order: -1;
+    }
+
     .hero h1 {
       color: #fff;
       font-weight: 650;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
     }
 
     .hero h1 em {
@@ -526,8 +662,7 @@
       gap: 22px;
       max-width: 34ch;
       margin-bottom: 30px;
-      font-size: clamp(1.15rem, 1.5vw, 1.3rem);
-      line-height: 1.5;
+      line-height: 1.35;
       letter-spacing: -.02em;
     }
 
@@ -585,11 +720,12 @@
       flex-wrap: wrap;
     }
 
+    /* zone tactile confortable (min. 44px de haut) et texte lisible */
     .btns .btn {
-      padding: 9px 18px;
-      font-size: .62rem;
-      letter-spacing: .1em;
-      gap: 8px;
+      padding: 15px 30px;
+      font-size: .76rem;
+      letter-spacing: .13em;
+      gap: 10px;
     }
 
     /* ---------- Bandeau 4 piliers ---------- */
@@ -1253,34 +1389,44 @@
 
 <body>
 
-  <!-- <header>
+  <a class="skip-link" href="#projets">Aller au contenu</a>
+
+  <header>
     <div class="wrap">
       <nav>
         <a class="brand" href="#top">
-          <img src="assets/logo-monogram.png" alt="Monogramme Kenza Kabeche">
+          <img src="assets/logo-monogram.png" alt="">
           <span class="brand-name">Kenza Kabeche</span>
         </a>
         <ul>
-          <li><a href="#demarche">Démarche</a></li>
-          <li><a href="#services">Services</a></li>
           <li><a href="#projets">Réalisations</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#competences">Compétences</a></li>
+          <li><a href="#parcours">Parcours</a></li>
           <li><a href="#apropos">À propos</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a class="nav-cta" href="#contact">Me contacter</a></li>
         </ul>
       </nav>
     </div>
-  </header> -->
+  </header>
+
+  <main>
 
   <!-- ============ HERO ============ -->
   <div class="hero" id="top">
-    <canvas id="mesh-hero"></canvas>
+    <canvas id="mesh-hero" aria-hidden="true"></canvas>
     <div class="wrap hero-inner">
       <div class="hero-brand">
         <img src="assets/logo-white-transparent.png" alt="Logo Kenza Kabeche">
         <span class="n">Kenza Kabeche</span>
       </div>
       <div class="hero-content">
+        <p class="hero-role">Développeuse Full&nbsp;Stack &amp; Data&nbsp;Analyst</p>
+        <ul class="hero-meta">
+          <li>4+ années d'expérience</li>
+          <li>Tizi Ouzou · Algérie</li>
+          <li class="avail">Disponible en freelance</li>
+        </ul>
         <h1 class="claims">
           <span class="claim">
             <span class="claim-key">Solutions</span>
@@ -1812,7 +1958,7 @@
   <div class="cta-section">
     <div class="wrap">
       <div class="cta" id="contact">
-        <canvas id="mesh-cta"></canvas>
+        <canvas id="mesh-cta" aria-hidden="true"></canvas>
         <div class="cta-inner">
           <span class="eyebrow">Contact</span>
           <h2>Passons de vos données à vos <em>décisions</em>.</h2>
@@ -1821,6 +1967,8 @@
       </div>
     </div>
   </div>
+
+  </main>
 
   <!-- ============ FOOTER ============ -->
   <footer>
