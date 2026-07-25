@@ -730,281 +730,6 @@
       }
     }
 
-    /* ---------- Schéma interactif ---------- */
-    .fd {
-      margin: 90px auto 0;
-      width: min(760px, 100%);
-      background: var(--white);
-      border: 1px solid rgba(13, 27, 42, .06);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      padding: 56px 44px 40px;
-    }
-
-    .fd svg {
-      width: 100%;
-      height: auto;
-      display: block;
-      overflow: visible;
-    }
-
-    .fd figcaption {
-      margin-top: 10px;
-      text-align: center;
-      font-size: .66rem;
-      font-weight: 500;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--gray-300);
-    }
-
-    .fd .orbit {
-      fill: none;
-      stroke: var(--gray-200);
-      stroke-width: 1;
-      stroke-dasharray: 2 7;
-      opacity: .65;
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: fdSpin 60s linear infinite;
-    }
-
-    @keyframes fdSpin {
-      to {
-        transform: rotate(360deg)
-      }
-    }
-
-    .fd .ln {
-      fill: none;
-      stroke: var(--teal);
-      stroke-opacity: .4;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      /* --len est calculé en JS (longueur réelle du tracé) */
-      stroke-dasharray: var(--len);
-      stroke-dashoffset: var(--len);
-      transition:
-        stroke-dashoffset .75s ease var(--dl, 0s),
-        stroke-opacity .25s ease,
-        stroke-width .25s ease,
-        stroke .25s ease;
-    }
-
-    .fd.play .ln {
-      stroke-dashoffset: 0;
-    }
-
-    .fd .ln.conv {
-      stroke: url(#fdConvGrad);
-      stroke-opacity: .65;
-    }
-
-    .fd .nd {
-      opacity: 0;
-      transform: scale(.5);
-      transform-box: fill-box;
-      transform-origin: center;
-      transition:
-        opacity .5s ease var(--dl, 0s),
-        transform .55s cubic-bezier(.2, .9, .3, 1.4) var(--dl, 0s);
-    }
-
-    .fd.play .nd {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .fd .chip {
-      fill: #fff;
-      stroke: rgba(13, 27, 42, .1);
-      stroke-width: 1;
-      filter: url(#fdShadow);
-      transition: stroke .25s ease, stroke-width .25s ease;
-    }
-
-    .fd .chip-accent {
-      stroke: none;
-    }
-
-    .fd .node-web .chip-accent,
-    .fd .node-data .chip-accent {
-      fill: rgba(15, 76, 92, .1);
-    }
-
-    .fd .node-mkt .chip-accent {
-      fill: rgba(212, 163, 115, .16);
-    }
-
-    .fd .node-src .chip-accent {
-      fill: rgba(7, 20, 33, .06);
-    }
-
-    .fd .icn {
-      fill: none;
-      stroke-width: 1.6;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      transition: stroke .25s ease;
-    }
-
-    .fd .node-src .icn {
-      stroke: var(--navy);
-    }
-
-    .fd .node-web .icn,
-    .fd .node-data .icn {
-      stroke: var(--teal);
-    }
-
-    .fd .node-mkt .icn {
-      stroke: var(--gold);
-    }
-
-    .fd .hub .chip {
-      fill: url(#fdHubFill);
-      stroke: none;
-      filter: url(#fdShadowLg);
-    }
-
-    .fd .hub .icn {
-      stroke: var(--navy);
-      stroke-width: 2.1;
-    }
-
-    .fd .hub {
-      transform-box: fill-box;
-      transform-origin: center;
-      transition: transform .35s ease;
-    }
-
-    .fd .lbl {
-      font-family: var(--sans);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      text-anchor: middle;
-      fill: var(--gray-500);
-      opacity: 0;
-      paint-order: stroke fill;
-      stroke: var(--white);
-      stroke-width: 5px;
-      stroke-linejoin: round;
-      transition: opacity .45s ease var(--dl, 0s), fill .25s ease;
-    }
-
-    .fd.play .lbl {
-      opacity: 1;
-    }
-
-    .fd .lbl-src {
-      fill: var(--navy);
-      letter-spacing: .2em;
-      font-weight: 700;
-    }
-
-    .fd .lbl-key {
-      fill: var(--gold);
-      font-size: 12px;
-      letter-spacing: .22em;
-      font-weight: 700;
-    }
-
-    .fd .halo,
-    .fd .ring {
-      opacity: 0;
-    }
-
-    .fd .ring {
-      fill: none;
-      stroke: var(--gold);
-      stroke-opacity: .45;
-      stroke-width: 1;
-      transform-box: fill-box;
-      transform-origin: center;
-    }
-
-    .fd.play .halo {
-      animation: fdGlowIn .9s ease 3.05s forwards;
-    }
-
-    .fd.play .ring {
-      animation: fdRing 2.4s ease-out 3.15s infinite;
-    }
-
-    @keyframes fdGlowIn {
-      to {
-        opacity: 1
-      }
-    }
-
-    @keyframes fdRing {
-      0% {
-        opacity: .7;
-        transform: scale(.55)
-      }
-
-      70% {
-        opacity: 0;
-        transform: scale(1.5)
-      }
-
-      100% {
-        opacity: 0;
-        transform: scale(1.5)
-      }
-    }
-
-    .fd .hit {
-      fill: transparent;
-      cursor: pointer;
-    }
-
-    .fd .branch {
-      outline: none;
-      transition: opacity .25s ease;
-    }
-
-    .fd .branch:hover .ln,
-    .fd .branch:focus-visible .ln {
-      stroke: var(--gold);
-      stroke-opacity: 1;
-      stroke-width: 2.2;
-    }
-
-    .fd .branch:hover .chip,
-    .fd .branch:focus-visible .chip {
-      stroke: var(--gold);
-      stroke-width: 1.6;
-    }
-
-    .fd .branch:hover .icn,
-    .fd .branch:focus-visible .icn {
-      stroke: var(--gold);
-    }
-
-    .fd .branch:hover .lbl,
-    .fd .branch:focus-visible .lbl {
-      fill: var(--navy);
-    }
-
-    .fd:has(.branch:hover) .branch:not(:hover),
-    .fd:has(.branch:focus-visible) .branch:not(:focus-visible) {
-      opacity: .35;
-    }
-
-    .fd:has(.branch:hover) .hub,
-    .fd:has(.branch:focus-visible) .hub {
-      transform: scale(1.06);
-    }
-
-    @media(max-width:600px) {
-      .fd {
-        padding: 40px 20px 30px;
-      }
-    }
-
     /* ---------- Services ---------- */
     .offers {
       display: grid;
@@ -1221,14 +946,6 @@
     .case-btn.ghost:hover {
       border-color: var(--gold);
       color: var(--teal);
-    }
-
-    .case-private {
-      margin-top: auto;
-      font-size: .68rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--gray-300);
     }
 
     .case.featured {
@@ -1525,21 +1242,6 @@
         scroll-behavior: auto
       }
 
-      .fd .ln,
-      .fd .nd,
-      .fd .lbl {
-        transition: none !important;
-        transition-delay: 0s !important;
-        stroke-dashoffset: 0 !important;
-        opacity: 1;
-        transform: none;
-      }
-
-      .fd .halo,
-      .fd .ring {
-        animation: none
-      }
-
       .card:hover,
       .flow-step:hover,
       .btn-primary:hover {
@@ -1605,8 +1307,7 @@
   <section id="demarche">
     <div class="wrap">
       <div class="section-head fade-up">
-        <span class="eyebrow">La démarche</span>
-        <h2>Une même démarche, pas quatre métiers</h2>
+        <h2>La démarche</h2>
         <div class="rule"></div>
       </div>
 
@@ -1647,108 +1348,6 @@
         </div>
       </div>
 
-      <!-- Schéma interactif : de l'entreprise à la décision -->
-      <figure class="fd" id="flow-diagram">
-        <svg viewBox="0 0 640 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
-          aria-label="Schéma : une entreprise s'appuie sur trois leviers (Web, Marketing et Analyse de données) qui convergent vers de meilleures décisions.">
-          <defs>
-            <radialGradient id="fdGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#D4A373" stop-opacity=".55" />
-              <stop offset="100%" stop-color="#D4A373" stop-opacity="0" />
-            </radialGradient>
-            <linearGradient id="fdConvGrad" x1="320" y1="242" x2="320" y2="386" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#0F4C5C" stop-opacity=".5" />
-              <stop offset="100%" stop-color="#D4A373" stop-opacity=".9" />
-            </linearGradient>
-            <radialGradient id="fdHubFill" cx="35%" cy="30%" r="75%">
-              <stop offset="0%" stop-color="#E6C19A" />
-              <stop offset="100%" stop-color="#D4A373" />
-            </radialGradient>
-            <filter id="fdShadow" x="-60%" y="-60%" width="220%" height="220%">
-              <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0B1B2B" flood-opacity=".16" />
-            </filter>
-            <filter id="fdShadowLg" x="-70%" y="-70%" width="240%" height="240%">
-              <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0B1B2B" flood-opacity=".22" />
-            </filter>
-          </defs>
-
-          <circle class="orbit" cx="320" cy="230" r="205" />
-
-          <!-- Entreprise -->
-          <g class="nd node-src" style="--dl:.1s">
-            <circle class="chip" cx="320" cy="58" r="20" />
-            <circle class="chip-accent" cx="320" cy="58" r="14" />
-            <g class="icn" transform="translate(320,58)">
-              <path d="M-9 8V-2L0-9L9-2V8Z" />
-              <path d="M-3 8V2H3V8" />
-            </g>
-          </g>
-          <text class="lbl lbl-src" style="--dl:.1s" x="320" y="20">Entreprise</text>
-
-          <!-- Branche Web -->
-          <g class="branch" data-branch="web" tabindex="0">
-            <path class="ln" style="--dl:1.3s" d="M320 78C320 130 160 130 110 186" />
-            <path class="ln conv" style="--dl:2.3s" d="M110 242C110 300 220 340 290 364" />
-            <g class="nd node-web" style="--dl:1.75s">
-              <circle class="chip" cx="110" cy="214" r="28" />
-              <circle class="chip-accent" cx="110" cy="214" r="20" />
-              <g class="icn" transform="translate(110,214)">
-                <rect x="-9" y="-7" width="18" height="14" rx="2" />
-                <path d="M-9 -2H9" />
-                <circle cx="-6" cy="-4.5" r=".7" fill="currentColor" stroke="none" />
-              </g>
-            </g>
-            <text class="lbl" style="--dl:1.75s" x="110" y="270">Web</text>
-            <circle class="hit" cx="110" cy="214" r="46" />
-          </g>
-
-          <!-- Branche Marketing -->
-          <g class="branch" data-branch="marketing" tabindex="0">
-            <path class="ln" style="--dl:1.45s" d="M320 78C320 118 320 150 320 186" />
-            <path class="ln conv" style="--dl:2.4s" d="M320 242C320 290 320 320 320 350" />
-            <g class="nd node-mkt" style="--dl:1.9s">
-              <circle class="chip" cx="320" cy="214" r="28" />
-              <circle class="chip-accent" cx="320" cy="214" r="20" />
-              <g class="icn" transform="translate(320,214)">
-                <path d="M-9 7L-2 -1L3 3L9 -6" />
-                <path d="M3 -6H9V0" />
-              </g>
-            </g>
-            <text class="lbl" style="--dl:1.9s" x="320" y="270">Marketing</text>
-            <circle class="hit" cx="320" cy="214" r="46" />
-          </g>
-
-          <!-- Branche Data -->
-          <g class="branch" data-branch="data" tabindex="0">
-            <path class="ln" style="--dl:1.6s" d="M320 78C320 130 480 130 530 186" />
-            <path class="ln conv" style="--dl:2.5s" d="M530 242C530 300 420 340 350 364" />
-            <g class="nd node-data" style="--dl:2.05s">
-              <circle class="chip" cx="530" cy="214" r="28" />
-              <circle class="chip-accent" cx="530" cy="214" r="20" />
-              <g class="icn" transform="translate(530,214)">
-                <path d="M-8 7V-1" />
-                <path d="M0 7V-6" />
-                <path d="M8 7V2" />
-              </g>
-            </g>
-            <text class="lbl" style="--dl:2.05s" x="530" y="270">Data</text>
-            <circle class="hit" cx="530" cy="214" r="46" />
-          </g>
-
-          <!-- Décisions -->
-          <g class="decision">
-            <circle class="halo" cx="320" cy="386" r="60" fill="url(#fdGlow)" />
-            <circle class="ring" cx="320" cy="386" r="48" />
-            <g class="nd hub" style="--dl:3.05s">
-              <circle class="chip" cx="320" cy="386" r="36" />
-              <g class="icn" transform="translate(320,386)">
-                <path d="M-11 0L-3 9L12 -10" />
-              </g>
-            </g>
-            <text class="lbl lbl-key" style="--dl:3.2s" x="320" y="452">Décisions</text>
-          </g>
-        </svg>
-      </figure>
     </div>
   </section>
 
@@ -1816,23 +1415,25 @@
           </div>
           <div class="case-body">
             <span class="case-cat">Visibilité</span>
-            <h3>Site vitrine &amp; espace d'administration</h3>
+            <h3>Sites web professionnels &amp; plateformes d'administration</h3>
             <div class="case-block">
               <span class="case-label">Contexte</span>
-              <p class="case-context">Une structure du secteur santé n'avait aucune vitrine en ligne et dépendait d'un
-                tiers pour la moindre mise à jour.</p>
+              <p class="case-context">J'ai accompagné des clients dans des domaines très différents — santé,
+                restauration, automobile, matériel médical, industrie. Le même besoin revenait : une vitrine en
+                ligne sérieuse, mais qu'ils puissent mettre à jour eux-mêmes.</p>
             </div>
             <div class="case-block">
               <span class="case-label">Solution</span>
-              <p class="case-solution">Un site professionnel avec un espace d'administration complet, pour que l'équipe
-                publie et modifie son contenu en toute autonomie.</p>
+              <p class="case-solution">À chaque fois, un site sur mesure avec son espace d'administration sécurisé.
+                L'équipe modifie ses pages, ses actualités ou son catalogue quand elle veut, sans avoir à
+                m'appeler pour la moindre virgule.</p>
             </div>
             <div class="case-tech">
               <span class="tech-badge">Laravel</span>
               <span class="tech-badge">PHP</span>
               <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">JavaScript</span>
             </div>
-            <p class="case-private">Projet client · code privé</p>
           </div>
         </article>
 
@@ -1855,23 +1456,24 @@
           </div>
           <div class="case-body">
             <span class="case-cat">Visibilité</span>
-            <h3>Site &amp; communication digitale</h3>
+            <h3>Image de marque &amp; présence digitale</h3>
             <div class="case-block">
               <span class="case-label">Contexte</span>
-              <p class="case-context">Une entreprise de services voulait une présence en ligne cohérente avec ses
-                réseaux sociaux, sans avoir à la gérer elle-même.</p>
+              <p class="case-context">Avoir un site et des comptes Instagram ne suffit pas. Quand chaque support
+                parle avec un ton et des visuels différents, la marque paraît brouillonne — et on lui fait moins
+                confiance.</p>
             </div>
             <div class="case-block">
               <span class="case-label">Solution</span>
-              <p class="case-solution">Un site web et un accompagnement en communication digitale en abonnement annuel :
-                contenus, référencement et cohérence entre tous les canaux.</p>
+              <p class="case-solution">J'ai repris l'ensemble : une identité visuelle unique, le site, la ligne
+                éditoriale, les contenus et le référencement. Le but, tout simple : qu'on reconnaisse la marque,
+                qu'on tombe sur le site comme sur une publication.</p>
             </div>
             <div class="case-tech">
               <span class="tech-badge">Web</span>
               <span class="tech-badge">SEO</span>
               <span class="tech-badge">Réseaux sociaux</span>
             </div>
-            <p class="case-private">Projet client · code privé</p>
           </div>
         </article>
 
@@ -1893,23 +1495,27 @@
           </div>
           <div class="case-body">
             <span class="case-cat">Visibilité · Vente en ligne</span>
-            <h3>Boutique e-commerce</h3>
+            <h3>E-commerce &amp; identité de marque</h3>
             <div class="case-block">
               <span class="case-label">Contexte</span>
-              <p class="case-context">Une marque de prêt-à-porter voulait vendre en ligne, mais chaque mise à jour
-                manuelle du site créait un risque d'erreur et d'indisponibilité.</p>
+              <p class="case-context">Il fallait lancer une marque de prêt-à-porter en partant de zéro : le nom,
+                le logo, l'univers, puis la boutique en ligne pour vendre. Et une boutique que la cliente puisse
+                faire tourner seule une fois le projet livré.</p>
             </div>
             <div class="case-block">
               <span class="case-label">Solution</span>
-              <p class="case-solution">Une boutique en ligne responsive, avec un déploiement automatisé (CI/CD) : les
-                mises à jour partent en production déjà testées, sans manipulation risquée.</p>
+              <p class="case-solution">J'ai tout construit, du nom de marque et de la charte graphique jusqu'à la
+                boutique responsive. L'espace d'administration gère les produits, les commandes et le contenu ; un
+                pipeline CI/CD pousse les mises à jour en production sans casser ce qui tourne déjà.</p>
             </div>
             <div class="case-tech">
+              <span class="tech-badge">Laravel</span>
               <span class="tech-badge">JavaScript</span>
-              <span class="tech-badge">GitHub</span>
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">GitHub Actions</span>
               <span class="tech-badge">CI/CD</span>
+              <span class="tech-badge">UX/UI</span>
             </div>
-            <p class="case-private">Projet client · code privé</p>
           </div>
         </article>
 
@@ -1929,23 +1535,25 @@
           </div>
           <div class="case-body">
             <span class="case-cat">Outils numériques</span>
-            <h3>Plateforme de gestion tout-en-un</h3>
+            <h3>Plateforme collaborative métier</h3>
             <div class="case-block">
               <span class="case-label">Contexte</span>
-              <p class="case-context">Une agence pilotait sa facturation, ses devis, sa comptabilité et ses RH avec
-                plusieurs outils séparés, sans vue d'ensemble.</p>
+              <p class="case-context">Cette entreprise avait sa propre façon de travailler, et aucun logiciel du
+                marché ne collait vraiment. Ses équipes jonglaient entre plusieurs applis pour une seule et même
+                tâche.</p>
             </div>
             <div class="case-block">
               <span class="case-label">Solution</span>
-              <p class="case-solution">Une plateforme unique qui centralise tous ces processus, avec une gestion fine
-                des rôles et une messagerie interne. Toute l'activité se pilote au même endroit.</p>
+              <p class="case-solution">J'ai développé une plateforme taillée sur ses processus : comptes et rôles,
+                espaces de travail partagés, suivi d'activité, messagerie interne, gestion documentaire. C'est
+                l'outil qui s'adapte à l'organisation, pas l'organisation qui se plie à l'outil.</p>
             </div>
             <div class="case-tech">
               <span class="tech-badge">Laravel</span>
+              <span class="tech-badge">PHP</span>
               <span class="tech-badge">MySQL</span>
-              <span class="tech-badge">Blade</span>
+              <span class="tech-badge">JavaScript</span>
             </div>
-            <p class="case-private">Projet client · code privé</p>
           </div>
         </article>
 
@@ -2143,16 +1751,15 @@
         <div class="rule"></div>
       </div>
       <div class="prose fade-up">
-        <p>J'ai commencé comme <strong>développeuse web</strong>, en concevant des sites et des applications sur
-          mesure. En dirigeant ensuite l'équipe <strong>marketing digital</strong>, j'ai compris qu'un bon outil ne
-          vaut pas que par sa technique : il doit servir des objectifs concrets et créer de la valeur.</p>
-        <p>Au fil des projets, un constat s'est imposé : beaucoup d'entreprises collectent déjà de nombreuses données
-          (ventes, rendez-vous, devis, trafic web, clients) sans vraiment les exploiter. Je me suis alors formée
-          sérieusement à l'<strong>analyse de données et au machine learning</strong>, pour transformer ce trésor
-          dormant en décisions concrètes.</p>
-        <p>Aujourd'hui, je réunis le développement web, le marketing digital et l'analyse de données autour d'un même
-          objectif : concevoir des solutions qui améliorent la visibilité des entreprises, simplifient leur
-          fonctionnement et les aident à prendre des décisions plus éclairées.</p>
+        <p>J'ai commencé comme <strong>développeuse web</strong>, à construire des sites et des applications sur
+          mesure. Puis j'ai pris la tête de l'équipe <strong>marketing digital</strong>, et c'est là que j'ai
+          compris quelque chose : un outil bien codé ne sert à rien s'il ne fait pas avancer un objectif réel.</p>
+        <p>À force de travailler avec des entreprises, j'ai vu le même gâchis partout : elles accumulent des données
+          — ventes, rendez-vous, devis, trafic — et ne s'en servent jamais. Je me suis donc formée pour de bon à
+          l'<strong>analyse de données et au machine learning</strong>, pour en tirer des décisions concrètes.</p>
+        <p>Aujourd'hui je fais dialoguer ces trois mondes — le web, le marketing et la data — au service d'une seule
+          chose : rendre les entreprises plus visibles, leur faire gagner du temps, et les aider à décider sur des
+          faits.</p>
       </div>
     </div>
   </section>
@@ -2346,28 +1953,6 @@
       var cta = document.getElementById('mesh-cta');
       if (hero) initMesh(hero, 11000);
       if (cta) initMesh(cta, 9000);
-    })();
-
-    /* ===== Schéma interactif : tracé progressif au premier passage ===== */
-    (function () {
-      var fd = document.getElementById('flow-diagram');
-      if (!fd) return;
-
-      /* chaque trait démarre masqué sur sa propre longueur */
-      var lines = fd.querySelectorAll('.ln');
-      Array.prototype.forEach.call(lines, function (p) {
-        p.style.setProperty('--len', p.getTotalLength().toFixed(1));
-      });
-
-      function play() { fd.classList.add('play'); }
-
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { play(); return; }
-      if (!('IntersectionObserver' in window)) { play(); return; }
-
-      var io = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) { play(); io.disconnect(); }
-      }, { threshold: .35 });
-      io.observe(fd);
     })();
 
     /* ===== Apparition au scroll ===== */
