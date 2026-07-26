@@ -408,110 +408,6 @@
       border-radius: 2px;
     }
 
-    /* ---------- Header ---------- */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(248, 247, 244, .82);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--gray-200);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
-
-    .brand img {
-      height: 42px;
-      width: auto;
-      display: block;
-    }
-
-    .brand-name {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--navy);
-      display: block;
-      line-height: 1;
-    }
-
-    .brand-sub {
-      font-size: .54rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gray-500);
-      margin-top: 6px;
-      display: block;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    nav ul a {
-      text-decoration: none;
-      color: var(--gray-500);
-      font-size: .74rem;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-weight: 500;
-      padding-bottom: 4px;
-      border-bottom: 1px solid transparent;
-      transition: var(--transition);
-    }
-
-    nav ul a:hover {
-      color: var(--navy);
-      border-bottom-color: var(--gold);
-    }
-
-    /* le contact se distingue des autres liens */
-    nav ul a.nav-cta {
-      border: 1px solid var(--gold);
-      border-radius: 999px;
-      padding: 9px 20px;
-      color: var(--navy);
-      font-weight: 600;
-      transition: var(--transition);
-    }
-
-    nav ul a.nav-cta:hover {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    @media(max-width:900px) {
-      .brand-sub {
-        display: none
-      }
-
-      nav ul {
-        gap: 16px
-      }
-
-      nav ul a {
-        font-size: .66rem;
-        letter-spacing: .1em
-      }
-    }
-
     /* ---------- Hero ---------- */
     .hero {
       position: relative;
@@ -543,13 +439,13 @@
     .hero-inner {
       position: relative;
       z-index: 2;
-      padding: 120px 0 130px;
+      padding: 96px 0 120px;
       width: min(1160px, 94%);
       margin-inline: auto;
       display: grid;
       grid-template-columns: minmax(180px, 250px) 1fr;
       align-items: center;
-      gap: 72px;
+      gap: 56px 72px;
     }
 
     .hero-brand {
@@ -580,23 +476,13 @@
       display: block;
     }
 
-    /* signature de la charte graphique */
-    .hero-brand .sig {
-      display: block;
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(212, 163, 115, .35);
-      font-size: .62rem;
-      font-weight: 500;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      line-height: 2;
-      color: rgba(255, 255, 255, .5);
-      max-width: 15ch;
+    .hero-content {
+      max-width: none;
     }
 
-    .hero-content {
-      max-width: 620px;
+    /* le paragraphe et les boutons courent sous les deux colonnes */
+    .hero-foot {
+      grid-column: 1 / -1;
     }
 
     /* ligne d'identité : ce qu'un recruteur cherche en 5 secondes */
@@ -658,7 +544,7 @@
     .hero h1 {
       color: #fff;
       font-weight: 650;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-size: clamp(1.25rem, 2.2vw, 1.6rem);
     }
 
     .hero h1 em {
@@ -668,39 +554,19 @@
     }
 
     .hero .lead {
-      font-size: 1.05rem;
+      font-size: 1.12rem;
       color: rgba(255, 255, 255, .68);
-      max-width: 620px;
-      margin-bottom: 26px;
-    }
-
-    /* ce que je livre, en clair */
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      list-style: none;
+      max-width: none;
       margin-bottom: 38px;
-    }
-
-    .hero-tags li {
-      font-size: .68rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .8);
-      border: 1px solid rgba(255, 255, 255, .18);
-      border-radius: 999px;
-      padding: 7px 16px;
     }
 
     /* les deux affirmations en blocs à nœuds */
     .claims {
       display: flex;
       flex-direction: column;
-      gap: 22px;
-      max-width: 34ch;
-      margin-bottom: 30px;
+      gap: 16px;
+      max-width: 46ch;
+      margin-bottom: 0;
       line-height: 1.35;
       letter-spacing: -.02em;
     }
@@ -708,7 +574,7 @@
     .claim {
       position: relative;
       display: block;
-      padding-left: 30px;
+      padding-left: 24px;
     }
 
     .claim::before {
@@ -716,24 +582,24 @@
       position: absolute;
       left: 0;
       top: .5em;
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #fff;
-      box-shadow: 0 0 0 5px rgba(255, 255, 255, .1);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, .1);
     }
 
     .claim:last-child::before {
       background: var(--gold);
-      box-shadow: 0 0 0 5px rgba(212, 163, 115, .18);
+      box-shadow: 0 0 0 4px rgba(212, 163, 115, .18);
     }
 
     .claim:not(:last-child)::after {
       content: "";
       position: absolute;
-      left: 4px;
-      top: calc(.5em + 13px);
-      bottom: -26px;
+      left: 3.5px;
+      top: calc(.5em + 11px);
+      bottom: -19px;
       width: 1px;
       background: linear-gradient(180deg, rgba(255, 255, 255, .3), rgba(212, 163, 115, .6));
     }
@@ -761,10 +627,10 @@
 
     /* zone tactile confortable (min. 44px de haut) et texte lisible */
     .btns .btn {
-      padding: 15px 30px;
-      font-size: .76rem;
-      letter-spacing: .13em;
-      gap: 10px;
+      padding: 13px 26px;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      gap: 8px;
     }
 
     /* ---------- Bandeau 4 piliers ---------- */
@@ -1376,7 +1242,7 @@
       }
 
       .hero-inner {
-        padding: 100px 0 110px
+        padding: 80px 0 100px
       }
 
       .cta {
@@ -1387,7 +1253,7 @@
     @media(max-width:860px) {
       .hero-inner {
         grid-template-columns: 1fr;
-        gap: 56px;
+        gap: 44px;
       }
 
       .hero-brand {
@@ -1398,16 +1264,6 @@
 
       .hero-brand img {
         width: 72px;
-      }
-
-      /* la signature respire sur toute la largeur */
-      .hero-brand .sig {
-        max-width: none;
-        line-height: 1.7;
-      }
-
-      .hero-content {
-        max-width: none;
       }
     }
 
@@ -1436,25 +1292,6 @@
 
   <a class="skip-link" href="#projets">Aller au contenu</a>
 
-  <header>
-    <div class="wrap">
-      <nav>
-        <a class="brand" href="#top">
-          <img src="assets/logo-monogram.png" alt="">
-          <span class="brand-name">Kenza Kabeche</span>
-        </a>
-        <ul>
-          <li><a href="#projets">Réalisations</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#competences">Compétences</a></li>
-          <li><a href="#parcours">Parcours</a></li>
-          <li><a href="#apropos">À propos</a></li>
-          <li><a class="nav-cta" href="#contact">Me contacter</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
   <main>
 
   <!-- ============ HERO ============ -->
@@ -1465,7 +1302,6 @@
         <img src="assets/logo-white-transparent.png" alt="">
         <div class="hero-brand-text">
           <span class="n">Kenza Kabeche</span>
-          <span class="sig">Connecter. Concevoir. Comprendre. Décider.</span>
         </div>
       </div>
       <div class="hero-content">
@@ -1484,14 +1320,12 @@
             Des chiffres qui deviennent des <em>décisions</em>
           </span>
         </h1>
-        <p class="lead">Je construis les outils dont une entreprise a besoin pour avancer : son site, ses
-          applications de gestion. Puis je fais parler les données qu'elle accumule sans les exploiter. Le web
-          pour être visible, la data pour décider.</p>
-        <ul class="hero-tags">
-          <li>Sites web</li>
-          <li>Applications de gestion</li>
-          <li>Dashboards &amp; analyse</li>
-        </ul>
+      </div>
+      <div class="hero-foot">
+        <p class="lead">Je construis des solutions numériques qui répondent aux besoins d'aujourd'hui et
+          soutiennent les décisions de demain. En combinant le développement web, la communication digitale et
+          l'analyse de données, j'aide les entreprises à gagner en visibilité, optimiser leurs processus et
+          exploiter pleinement le potentiel de leurs données.</p>
         <div class="btns">
           <a class="btn btn-primary" href="#projets">Découvrir mes réalisations</a>
           <a class="btn btn-ghost" href="#contact">Me contacter</a>
