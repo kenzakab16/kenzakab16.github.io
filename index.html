@@ -212,15 +212,16 @@
 
       justify-content: center;
 
-      gap: 12px;
+      gap: 8px;
 
-      padding: 16px 34px;
+      /* zone tactile confortable (min. 44px de haut) et texte lisible */
+      padding: 13px 26px;
 
       border-radius: 999px;
 
-      font-size: .78rem;
+      font-size: .72rem;
 
-      letter-spacing: .15em;
+      letter-spacing: .12em;
 
       text-transform: uppercase;
 
@@ -623,14 +624,6 @@
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-    }
-
-    /* zone tactile confortable (min. 44px de haut) et texte lisible */
-    .btns .btn {
-      padding: 13px 26px;
-      font-size: .72rem;
-      letter-spacing: .12em;
-      gap: 8px;
     }
 
     /* ---------- Bandeau 4 piliers ---------- */
@@ -1197,22 +1190,34 @@
 
     .footer-links {
       display: flex;
-      gap: 30px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
+    /* liens sociaux en pastilles : la cible reste confortable au doigt */
     .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 50%;
       color: rgba(255, 255, 255, .72);
       text-decoration: none;
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-weight: 500;
       transition: var(--transition);
+    }
+
+    .footer-links svg {
+      width: 19px;
+      height: 19px;
+      fill: currentColor;
+      display: block;
     }
 
     .footer-links a:hover {
       color: var(--gold);
+      border-color: var(--gold);
     }
 
     .footer-bottom {
@@ -1389,7 +1394,7 @@
         <span class="eyebrow">Services</span>
         <h2>Deux façons de vous aider</h2>
         <div class="rule"></div>
-        <p class="sub">Un même fil conducteur : transformer vos outils et vos données en résultats concrets.</p>
+        <p class="sub">Un même fil conducteur : transformer vos outils et vos données en résultats concrets</p>
       </div>
       <div class="offers fade-up">
         <div class="card offer">
@@ -1419,10 +1424,9 @@
   <section id="projets">
     <div class="wrap">
       <div class="section-head fade-up">
-        <span class="eyebrow">Réalisations</span>
-        <h2>Des projets, dans l'ordre de la démarche</h2>
+        <h2>Réalisations</h2>
         <div class="rule"></div>
-        <p class="sub">Rendre visible, outiller, analyser, aider à décider : quelques études de cas courtes.</p>
+        <p class="sub">Rendre visible, outiller, analyser, aider à décider : quelques études de cas courtes</p>
       </div>
       <div class="cases fade-up">
 
@@ -1731,7 +1735,7 @@
         <span class="eyebrow">Compétences</span>
         <h2>Ce que je maîtrise</h2>
         <div class="rule"></div>
-        <p class="sub">Un profil hybride : technique, data et communication.</p>
+        <p class="sub">Un profil hybride : technique, data et communication</p>
       </div>
       <div class="skills-grid fade-up">
         <div class="card skill-card">
@@ -1799,10 +1803,9 @@
   <section id="parcours" class="alt-bg">
     <div class="wrap">
       <div class="section-head fade-up">
-        <span class="eyebrow">Parcours</span>
-        <h2>Chaque étape nourrit la suivante</h2>
+        <h2>Parcours</h2>
         <div class="rule"></div>
-        <p class="sub">Du développement web à la data, en passant par le marketing digital.</p>
+        <p class="sub">Du développement web à la data, en passant par le marketing digital</p>
       </div>
       <div class="timeline fade-up">
         <div class="step">
@@ -1846,7 +1849,7 @@
         <canvas id="mesh-cta" aria-hidden="true"></canvas>
         <div class="cta-inner">
           <span class="eyebrow">Contact</span>
-          <h2>Passons de vos données à vos <em>décisions</em>.</h2>
+          <h2>Passons de vos données à vos <em>décisions</em></h2>
           <a class="btn btn-primary" href="mailto:kenzakab16@gmail.com">Discutons de votre projet</a>
         </div>
       </div>
@@ -1860,18 +1863,29 @@
     <div class="wrap">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="assets/logo-white.png" alt="Kenza Kabeche">
+          <img src="assets/logo-white-transparent.png" alt="Kenza Kabeche">
           <span class="n">Kenza Kabeche</span>
         </div>
         <div class="footer-links">
-          <a href="mailto:kenzakab16@gmail.com">Email</a>
-          <a href="https://github.com/kenzakab16">GitHub</a>
-          <a href="https://www.linkedin.com/in/kenzakabeche">LinkedIn</a>
+          <a href="mailto:kenzakab16@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+            </svg>
+          </a>
+          <a href="https://github.com/kenzakab16" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/kenzakabeche" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+            </svg>
+          </a>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Kenza Kabeche · Tizi Ouzou, Algérie</span>
-        <span class="tag">Connecter. Concevoir. Comprendre. Décider.</span>
+        <span class="tag">Connecter Concevoir Comprendre Décider</span>
       </div>
     </div>
   </footer>
