@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Templates by Kenza Kabeche</title>
+  <meta name="description"
+    content="HTML website templates designed and coded by Kenza Kabeche: clean code, no framework, documentation included.">
+  <link rel="canonical" href="https://kenzakab16.github.io/themes/">
+  <meta name="author" content="Kenza Kabeche">
+  <meta name="theme-color" content="#071421">
+  <link rel="icon" href="../assets/favicon-tile.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kenzakab16.github.io/themes/">
+  <meta property="og:title" content="Web Templates by Kenza Kabeche">
+  <meta property="og:description" content="HTML website templates with clean code, no framework and full documentation.">
+  <meta property="og:image" content="https://kenzakab16.github.io/themes/mini-co/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="../assets/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(../assets/fonts/fraunces-normal-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 100 900; font-display: swap; src: url(../assets/fonts/fraunces-italic-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(../assets/fonts/inter-normal-latin.woff2) format('woff2'); }
+
+    :root {
+      --navy: #071421; --teal: #0F4C5C;
+      --gold: #D4A373; --gold-light: #E6C19A; --gold-dark: #9C6A44;
+      --cream: #F8F7F4; --white: #FFFFFF; --line: #E5E8EC;
+      --text: #132235; --muted: #4A5869;
+      --radius: 18px; --max: 1120px;
+      --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: auto; padding-inline: 24px; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; letter-spacing: -.02em; color: var(--navy); }
+    p { color: var(--muted); }
+    .skip { position: absolute; left: 12px; top: -60px; background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 8px; z-index: 10; }
+    .skip:focus { top: 12px; }
+
+    .top { background: var(--navy); color: #fff; }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--serif); font-size: 19px; }
+    .brand img { width: 38px; }
+    .brand small { font-family: var(--sans); font-size: 12px; color: var(--gold-light); display: block; letter-spacing: .04em; }
+    .top nav a { text-decoration: none; color: #DCE3EA; font-size: 14px; }
+    .top nav a:hover { color: #fff; }
+
+    .intro { padding-block: 64px 36px; }
+    .kicker { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+    .intro h1 { font-size: clamp(36px, 4.6vw, 54px); margin-bottom: 16px; }
+    .intro h1 em { font-style: italic; color: var(--teal); }
+    .intro p { font-size: 17px; max-width: 60ch; }
+
+    .catalogue { padding-bottom: 80px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .3s, transform .3s; }
+    .card:hover { box-shadow: 0 24px 50px -24px rgba(7, 20, 33, .3); transform: translateY(-3px); }
+    .card__img { aspect-ratio: 1180 / 600; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .card__img img { width: 100%; height: 100%; object-fit: cover; }
+    .card__body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .card h2 { font-size: 24px; }
+    .card h2 a { text-decoration: none; }
+    .card h2 a::after { content: ''; position: absolute; inset: 0; }
+    .card { position: relative; }
+    .card p { font-size: 15px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+    .tags li { font-size: 12px; font-weight: 600; color: var(--teal); background: #EAF2F4; border-radius: 999px; padding: 4px 10px; }
+    .card__foot { margin-top: auto; padding-top: 8px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .price { font-family: var(--serif); font-size: 26px; color: var(--navy); }
+    .more { font-size: 14px; font-weight: 600; color: var(--gold-dark); }
+    .demo { position: relative; z-index: 1; font-size: 14px; font-weight: 600; color: var(--teal); }
+
+    .soon { margin-top: 40px; padding: 22px 24px; border: 1.5px dashed #CBB59F; border-radius: var(--radius); text-align: center; }
+    .soon p { font-size: 15px; }
+    .soon a { color: var(--gold-dark); font-weight: 600; }
+
+    footer { background: var(--navy); color: #C7D1DB; padding: 36px 0; font-size: 14px; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+    footer a { color: var(--gold-light); }
+    @media (max-width: 600px) { .intro { padding-block-start: 40px; } .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="../"><img src="../assets/logo-white-transparent.png" alt="" width="228" height="175"><span>Kenza Kabeche<small>WEB TEMPLATES</small></span></a>
+      <nav aria-label="Main"><a href="../">Portfolio</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap intro">
+      <p class="kicker">Web templates</p>
+      <h1>Website templates, <em>ready to use</em></h1>
+      <p>I design and code these templates myself, in plain HTML, CSS and JavaScript. No framework to learn, no build step, and a documentation that shows where everything is. Each one comes with a live demo, so you can try it before you buy.</p>
+    </div>
+
+    <section class="wrap catalogue" aria-label="Templates">
+      <div class="grid">
+        <article class="card">
+          <div class="card__img"><img src="mini-co/img/preview.webp" alt="Mini &amp; Co. template on a laptop and a phone" width="1180" height="600"></div>
+          <div class="card__body">
+            <h2><a href="mini-co/">Mini &amp; Co.</a></h2>
+            <p>An HTML template for a kids clothing store, with a cart, a checkout and 14 pages in English and French.</p>
+            <ul class="tags"><li>E-commerce</li><li>Kids fashion</li><li>English &amp; French</li><li>Responsive</li></ul>
+            <div class="card__foot">
+              <span class="price">$15</span>
+              <a class="demo" href="https://crimson-union-ee08.kenzakabeche.workers.dev/" target="_blank" rel="noopener">Live demo</a>
+              <span class="more" aria-hidden="true">See details →</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="soon">
+        <p>More templates are on the way. Need something specific? <a href="mailto:kenzakab16@gmail.com">Write to me</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Kenza Kabeche · Tizi Ouzou, Algeria</span>
+      <span><a href="mailto:kenzakab16@gmail.com">kenzakab16@gmail.com</a> · <a href="../">Portfolio</a></span>
+    </div>
+  </footer>
+</body>
+
+</html>
