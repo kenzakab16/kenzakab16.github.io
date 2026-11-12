@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini &amp; Co. · Kids Clothing Store HTML Template by Kenza Kabeche</title>
+  <meta name="description"
+    content="Mini & Co. is an HTML, CSS and JavaScript template for a children's clothing shop: 14 pages in English and French, cart, checkout, documentation. Designed and coded by Kenza Kabeche.">
+  <link rel="canonical" href="https://kenzakab16.github.io/themes/mini-co/">
+  <meta name="author" content="Kenza Kabeche">
+  <meta name="theme-color" content="#071421">
+  <link rel="icon" href="../../assets/favicon-tile.png">
+
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://kenzakab16.github.io/themes/mini-co/">
+  <meta property="og:title" content="Mini & Co. · Kids Clothing Store HTML Template">
+  <meta property="og:description" content="14 pages in English and French, cart and checkout, no framework. Designed and coded by Kenza Kabeche.">
+  <meta property="og:image" content="https://kenzakab16.github.io/themes/mini-co/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="../../assets/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(../../assets/fonts/fraunces-normal-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 100 900; font-display: swap; src: url(../../assets/fonts/fraunces-italic-latin.woff2) format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(../../assets/fonts/inter-normal-latin.woff2) format('woff2'); }
+
+    :root {
+      --navy: #071421; --navy-light: #0E2338; --teal: #0F4C5C;
+      --gold: #D4A373; --gold-light: #E6C19A; --gold-dark: #9C6A44;
+      --cream: #F8F7F4; --white: #FFFFFF; --line: #E5E8EC;
+      --text: #132235; --muted: #4A5869;
+      --radius: 18px; --max: 1120px;
+      --serif: 'Fraunces', Georgia, serif; --sans: 'Inter', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--cream); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: auto; padding-inline: 24px; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; letter-spacing: -.02em; color: var(--navy); }
+    h2 { font-size: clamp(28px, 3.4vw, 40px); margin-bottom: 14px; }
+    h3 { font-size: 20px; margin-bottom: 6px; }
+    p { color: var(--muted); }
+    .skip { position: absolute; left: 12px; top: -60px; background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 8px; z-index: 10; }
+    .skip:focus { top: 12px; }
+
+    /* Header */
+    .top { background: var(--navy); color: #fff; }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--serif); font-size: 19px; }
+    .brand img { width: 38px; }
+    .brand small { font-family: var(--sans); font-size: 12px; color: var(--gold-light); display: block; letter-spacing: .04em; }
+    .top nav { display: flex; gap: 22px; font-size: 14px; }
+    .top nav a { text-decoration: none; color: #DCE3EA; }
+    .top nav a:hover { color: #fff; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; transition: background .25s, color .25s, border-color .25s; }
+    .btn-primary { background: var(--gold); color: var(--navy); }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-ghost { border: 1.5px solid currentColor; color: var(--navy); }
+    .btn-ghost:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+    /* Hero */
+    .hero { padding: 64px 0 40px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: center; }
+    .kicker { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(36px, 4.6vw, 56px); margin-bottom: 18px; }
+    .hero h1 em { font-style: italic; color: var(--teal); }
+    .hero .lead { font-size: 17px; margin-bottom: 26px; max-width: 46ch; }
+    .hero .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .price-tag { margin-top: 18px; font-size: 14px; color: var(--muted); }
+    .price-tag b { color: var(--navy); font-size: 18px; }
+    .shot { border-radius: var(--radius); overflow: hidden; box-shadow: 0 30px 70px -25px rgba(7, 20, 33, .35); border: 1px solid var(--line); background: #fff; }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    .alt { background: var(--white); border-block: 1px solid var(--line); }
+    .head { max-width: 640px; margin-bottom: 36px; }
+    .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .feature { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .alt .feature { background: var(--cream); }
+    .feature p { font-size: 15px; }
+
+    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .gallery figure { margin: 0; }
+    .gallery figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; }
+    .mobiles { display: grid; grid-template-columns: repeat(2, 200px); gap: 18px; margin-top: 28px; justify-content: center; }
+    .mobiles .shot { border-radius: 26px; border: 6px solid var(--navy); }
+
+    .pack { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+    ul.check { list-style: none; display: grid; gap: 10px; }
+    ul.check li { padding-left: 28px; position: relative; color: var(--muted); }
+    ul.check li::before { content: ''; position: absolute; left: 4px; top: 9px; width: 12px; height: 7px; border-left: 2px solid var(--teal); border-bottom: 2px solid var(--teal); transform: rotate(-45deg); }
+    .note { margin-top: 18px; padding: 14px 18px; border-left: 3px solid var(--gold); background: #FBF4EC; border-radius: 0 12px 12px 0; font-size: 15px; }
+
+    /* Pricing */
+    .pricing { display: grid; grid-template-columns: minmax(0, 420px); justify-content: center; }
+    .plan { background: var(--navy); color: #fff; border-radius: 24px; padding: 36px 32px; text-align: center; box-shadow: 0 30px 70px -25px rgba(7, 20, 33, .45); }
+    .plan h3 { color: #fff; }
+    .plan .amount { font-family: var(--serif); font-size: 56px; color: var(--gold-light); margin: 10px 0 2px; }
+    .plan p { color: #C7D1DB; font-size: 15px; }
+    .plan ul.check { text-align: left; margin: 22px 0 26px; }
+    .plan ul.check li { color: #E4EAF0; }
+    .plan ul.check li::before { border-color: var(--gold); }
+    .plan .btn { width: 100%; }
+    .plan small { display: block; margin-top: 12px; color: #9FB0C0; font-size: 13px; }
+
+    /* Terms and FAQ */
+    .terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .terms article { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .terms p { font-size: 15px; }
+    .terms p + p { margin-top: 10px; }
+    details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+    details summary { cursor: pointer; font-weight: 600; color: var(--navy); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    details summary::after { content: '+'; color: var(--gold-dark); font-size: 20px; line-height: 1; }
+    details[open] summary::after { content: '–'; }
+    details p { margin-top: 10px; font-size: 15px; }
+    .faq { max-width: 760px; }
+
+    footer { background: var(--navy); color: #C7D1DB; padding: 36px 0; font-size: 14px; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; align-items: center; }
+    footer a { color: var(--gold-light); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .pack { grid-template-columns: 1fr; }
+      .features, .gallery, .terms { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .top nav { display: none; }
+      .features, .gallery, .terms { grid-template-columns: 1fr; }
+      .mobiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      section { padding: 56px 0; }
+      .hero { padding-top: 40px; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="../../"><img src="../../assets/logo-white-transparent.png" alt="" width="228" height="175"><span>Kenza Kabeche<small>WEB TEMPLATES</small></span></a>
+      <nav aria-label="Page sections">
+        <a href="#features">Features</a>
+        <a href="#pages">Pages</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#terms">License &amp; refunds</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="kicker">HTML template</p>
+          <h1>Mini &amp; Co., a <em>kids clothing store</em> template</h1>
+          <p class="lead">I designed and coded Mini &amp; Co. for shops that sell baby and children's clothes. Soft colours, real product pages, a working cart and checkout, in English and French. You get plain HTML, CSS and JavaScript that you can host anywhere.</p>
+          <div class="btns">
+            <a class="btn btn-primary" href="#pricing">Buy the template</a>
+            <a class="btn btn-ghost" href="https://crimson-union-ee08.kenzakabeche.workers.dev/" target="_blank" rel="noopener">View live demo</a>
+          </div>
+          <p class="price-tag"><b>$15</b> · one-time payment, instant download</p>
+        </div>
+        <div class="shot"><img src="img/preview.webp" alt="Mini &amp; Co. home page on a laptop and a phone" width="1180" height="600" fetchpriority="high"></div>
+      </div>
+    </div>
+
+    <section id="features" class="alt">
+      <div class="wrap">
+        <div class="head">
+          <h2>What the template does</h2>
+          <p>Everything a small clothing shop needs to show its products and take orders, without a framework or a build step.</p>
+        </div>
+        <div class="features">
+          <div class="feature"><h3>14 ready pages</h3><p>Home, shop, product, cart, checkout, about and a 404 page, each one in English and French.</p></div>
+          <div class="feature"><h3>Language switch</h3><p>A FR | EN button opens the same page in the other language and keeps the product, the filters and the cart.</p></div>
+          <div class="feature"><h3>Cart and checkout</h3><p>Quantities, promo codes, free delivery threshold, delivery options and an order form with validation.</p></div>
+          <div class="feature"><h3>Shop filters</h3><p>Filter by category, size and price, sort, search, switch between grid and list, and save favourites.</p></div>
+          <div class="feature"><h3>One file for the catalogue</h3><p>Products, prices, sizes, colours, currency and delivery fees all live in a single data file.</p></div>
+          <div class="feature"><h3>Responsive and light</h3><p>Built for phones first, self-hosted fonts, no external requests, no dependency to update.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pages">
+      <div class="wrap">
+        <div class="head">
+          <h2>A look at the pages</h2>
+          <p>These are screenshots of the live demo. You can click through every page in the <a href="https://crimson-union-ee08.kenzakabeche.workers.dev/" target="_blank" rel="noopener">demo</a>.</p>
+        </div>
+        <div class="gallery">
+          <figure><div class="shot"><img src="img/home.webp" alt="Home page with hero slider" width="960" height="667" loading="lazy"></div><figcaption>Home page</figcaption></figure>
+          <figure><div class="shot"><img src="img/shop.webp" alt="Shop page with filters and product grid" width="960" height="667" loading="lazy"></div><figcaption>Shop with filters</figcaption></figure>
+          <figure><div class="shot"><img src="img/product.webp" alt="Product page with gallery, sizes and colours" width="960" height="667" loading="lazy"></div><figcaption>Product page</figcaption></figure>
+          <figure><div class="shot"><img src="img/cart.webp" alt="Cart page with order summary" width="960" height="667" loading="lazy"></div><figcaption>Cart</figcaption></figure>
+          <figure><div class="shot"><img src="img/checkout.webp" alt="Checkout form" width="960" height="667" loading="lazy"></div><figcaption>Checkout</figcaption></figure>
+          <figure><div class="shot"><img src="img/home-fr.webp" alt="French version of the home page" width="960" height="667" loading="lazy"></div><figcaption>French version</figcaption></figure>
+        </div>
+        <div class="mobiles">
+          <div class="shot"><img src="img/mobile-home.webp" alt="Home page on a phone" width="390" height="780" loading="lazy"></div>
+          <div class="shot"><img src="img/mobile-product.webp" alt="Product page on a phone" width="390" height="780" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="wrap pack">
+        <div>
+          <h2>What you download</h2>
+          <p>A ZIP file with the full site and its documentation.</p>
+        </div>
+        <div>
+          <ul class="check">
+            <li>The 14 HTML pages (English at the root, French in a <code>fr</code> folder)</li>
+            <li>One CSS file and two JavaScript files, commented in English</li>
+            <li>Self-hosted fonts with their open licences</li>
+            <li>HTML documentation: setup, store settings, products, images, colours, translations</li>
+            <li>Placeholder images with the right sizes, ready to replace with your photos</li>
+          </ul>
+          <p class="note">The photos you see in the demo are for preview only and are not included in the download. Each image in the package is a neutral placeholder showing the size to use.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="wrap">
+        <div class="head" style="margin-inline:auto;text-align:center">
+          <h2>Pricing</h2>
+          <p>One price, paid once. Checkout and invoices are handled by Lemon Squeezy, my reseller.</p>
+        </div>
+        <div class="pricing">
+          <div class="plan">
+            <h3>Mini &amp; Co. template</h3>
+            <p class="amount">$15</p>
+            <p>One-time payment, taxes calculated at checkout</p>
+            <ul class="check">
+              <li>Full template and documentation</li>
+              <li>Use on one website, yours or a client's</li>
+              <li>Free updates of this version</li>
+              <li>Email support for 6 months</li>
+            </ul>
+            <a class="btn btn-primary" href="https://kenzakabeche.lemonsqueezy.com/">Buy now</a>
+            <small>Secure payment by card through Lemon Squeezy. You receive the download link by email right after payment.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="terms" class="alt">
+      <div class="wrap">
+        <div class="head">
+          <h2>License, support and refunds</h2>
+          <p>The short version of what you can expect when you buy.</p>
+        </div>
+        <div class="terms">
+          <article>
+            <h3>License</h3>
+            <p>One purchase lets you build one website with the template, for yourself or for one client. You can change the code, the colours and the texts as much as you like.</p>
+            <p>You can't resell, share or redistribute the template, or offer it as part of another template or theme.</p>
+          </article>
+          <article>
+            <h3>Support</h3>
+            <p>If something doesn't work as described, write to me at <a href="mailto:kenzakab16@gmail.com">kenzakab16@gmail.com</a>. I usually answer within two working days.</p>
+            <p>Support covers bugs and questions about the template. It doesn't cover custom changes, but I can quote them separately.</p>
+          </article>
+          <article>
+            <h3>Refunds</h3>
+            <p>Since this is a digital download, I don't refund a purchase just because you changed your mind.</p>
+            <p>If the template has a problem I can't fix within 14 days of your purchase, I refund you in full. Just send me your order number.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap faq">
+        <h2>Questions</h2>
+        <details><summary>Do I need to know how to code?</summary><p>Basic HTML is enough. Products, prices and contact details are edited in one data file, and the documentation shows where everything is.</p></details>
+        <details><summary>Can I take real payments with it?</summary><p>The cart and checkout work in the browser, but the template doesn't take payments on its own. The documentation explains where to connect your payment provider or order service.</p></details>
+        <details><summary>Can I use only one language, or change the currency?</summary><p>Yes. You can delete the French folder to keep only English, and change the currency and price format in the data file.</p></details>
+        <details><summary>Which browsers are supported?</summary><p>Recent versions of Chrome, Edge, Firefox and Safari, on desktop and mobile.</p></details>
+        <details><summary>Where can I host it?</summary><p>Anywhere that serves static files: shared hosting, Netlify, Cloudflare, GitHub Pages or Vercel.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Kenza Kabeche · Tizi Ouzou, Algeria</span>
+      <span><a href="mailto:kenzakab16@gmail.com">kenzakab16@gmail.com</a> · <a href="../../">Portfolio</a></span>
+    </div>
+  </footer>
+</body>
+
+</html>
